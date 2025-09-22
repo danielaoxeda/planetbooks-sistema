@@ -1,10 +1,10 @@
-🌐 **PlanetBooks - Sistema Web**
+#🌐 **PlanetBooks - Sistema Web**
 
 Este repositorio contiene el sistema web completo para **PlanetBooks**, desarrollado como parte de un proyecto académico con miras a su implementación real en la empresa. El sistema está construido con **Spring Boot** en el backend y tecnologías web modernas en el frontend, ofreciendo una experiencia responsiva, segura y funcional.
 
 ---
 
-📌 **Objetivo**
+## 📌 **Objetivo**
 
 Diseñar e implementar una plataforma web que permita gestionar eficientemente las operaciones de PlanetBooks, incluyendo:
 
@@ -15,7 +15,7 @@ Diseñar e implementar una plataforma web que permita gestionar eficientemente l
 
 ---
 
-🧩 **Tecnologías utilizadas**
+## 🧩 **Tecnologías utilizadas**
 
 **Frontend:**
 - HTML5 – Estructura semántica del contenido  
@@ -34,7 +34,7 @@ Diseñar e implementar una plataforma web que permita gestionar eficientemente l
 
 ---
 
-📌 **Vistas del sistema**
+## 📌 **Vistas del sistema**
 
 **Usuario:**
 - Navegación por catálogo  
@@ -49,13 +49,13 @@ Diseñar e implementar una plataforma web que permita gestionar eficientemente l
 
 ---
 
-🚀 **Estado del proyecto**
+## 🚀 **Estado del proyecto**
 
 🔧 En desarrollo.  
 Se han inicializado los módulos principales con Spring Boot y se están construyendo las interfaces de usuario y lógica de negocio. Este repositorio se actualizará conforme avance el proyecto.
 
 ---
 
-👥 **Contribución**
+## 👥 **Contribución**
 Este es un proyecto grupal desarrollado por estudiantes de Ingeniería de la Universidad Tecnológica del Perú.
 
