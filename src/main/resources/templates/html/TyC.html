@@ -1,15 +1,157 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>T&C - Planet Books</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/TyC.css">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T&C - Planet Books</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="src\main\resources\static\css\TyC.css">
 </head>
-  <body>
-    <h1>Términos y Condiciones</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script href="js/TyC.js"></script>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-white fs-4" href="Inicio.html">
+          <i data-lucide="book-open" class="me-2"></i> PlanetBooks
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active text-white fw-semibold" href="Inicio.html"><i
+                  data-lucide="home" class="me-1"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Catalogo.html"><i data-lucide="library"
+                  class="me-1"></i> Catalog</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Ofertas.html"><i data-lucide="tag"
+                  class="me-1"></i> Offers</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Nosotros.html"><i data-lucide="info"
+                  class="me-1"></i> About Us</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Contacto.html"><i data-lucide="mail"
+                  class="me-1"></i> Contact</a></li>
+            <li class="nav-item ms-3">
+              <a class="btn btn-light text-success fw-semibold px-3" href="Login.html"><i data-lucide="log-in"
+                  class="me-1"></i> Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-5 bg-white text-success text-center mt-5">
+    <div class="container">
+      <span class="badge bg-success text-white mb-3 px-3 py-2">
+        <i data-lucide="file-text" class="me-1"></i> Terms & Conditions
+      </span>
+      <h1 class="fw-bold display-5">Our Service Agreement</h1>
+      <p class="lead text-dark">
+        Please read the following terms carefully before using our services and purchasing our ebooks.
+      </p>
+    </div>
+  </section>
+
+  <!-- Terms Content -->
+  <section class="bg-white">
+    <div class="container">
+      <p class="fw-bold text-success">Last updated: 26 September 2025</p>
+      <h4 class="mt-5 fw-bold">1. Use of Software</h4>
+      <p>Our ebooks and digital resources are provided to support teaching and learning. You are solely responsible for
+        their correct use.</p>
+
+      <h4 class="fw-bold mt-4">2. Limitations of Support</h4>
+      <p>We cannot assist you in the following cases:</p>
+      <ul>
+        <li>Changing or recovering forgotten passwords.</li>
+        <li>Incorrect installation due to user modifications.</li>
+      </ul>
+
+      <h4 class="fw-bold mt-4">3. Refunds & Returns</h4>
+      <p>We try to ensure compatibility across systems, but some issues may arise. Our refund policy lasts 30 days:</p>
+      <ul>
+        <li>We will refund if the ebook or software does not work on your device.</li>
+        <li>No refunds will be made if you purchased the wrong version.</li>
+        <li>If installation support fails, a partial refund may apply.</li>
+      </ul>
+
+      <h4 class="fw-bold mt-4">4. Installation Support</h4>
+      <p>Support for installation is available via <strong>Anydesk</strong> for customers who request it.</p>
+
+      <h4 class="fw-bold mt-4">5. Contact</h4>
+      <p>If you have questions about refunds or technical support, please contact us:</p>
+      <ul class="list-unstyled">
+        <li><i data-lucide="mail" class="me-1 text-success"></i> info@planetbooks.com</li>
+        <li><i data-lucide="phone-call" class="me-1 text-success"></i> +51 960 648 959</li>
+      </ul>
+    </div>
+  </section>
+  <br><br>
+
+  <!-- CTA -->
+  <section class="py-5 bg-success text-white text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3"><i data-lucide="help-circle" class="me-2"></i> Need Help?</h2>
+      <p class="mb-4">Our team is ready to help you with your purchase or installation support.</p>
+      <a href="Contacto.html" class="btn btn-light text-success fw-semibold px-4"><i data-lucide="mail"
+          class="me-1"></i> Contact Support</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-success text-white mt-5 pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold"><i data-lucide="book-open" class="me-1"></i> PlanetBooks</h5>
+          <p>Your partner for academic success.</p>
+          <p>Specialists in ebooks for international certifications.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="fw-bold"><i data-lucide="link" class="me-1"></i> Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none"><i data-lucide="library" class="me-1"></i>
+                Catalog</a></li>
+            <li><a href="#" class="text-white text-decoration-none"><i data-lucide="tag" class="me-1"></i> Offers</a>
+            </li>
+            <li><a href="Nosotros.html" class="text-white text-decoration-none"><i data-lucide="info" class="me-1"></i>
+                About Us</a>
+            </li>
+            <li><a href="Contacto.html" class="text-white text-decoration-none"><i data-lucide="life-buoy"
+                  class="me-1"></i>
+                Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="fw-bold"><i data-lucide="phone" class="me-1"></i> Contact</h6>
+          <p><i data-lucide="phone-call" class="me-1"></i> +51 960 648 959</p>
+          <p><i data-lucide="mail" class="me-1"></i> info@planetbooks.com</p>
+          <p><i data-lucide="map-pin" class="me-1"></i> Lima, Peru</p>
+        </div>
+      </div>
+      <hr class="border-light">
+      <div class="d-flex justify-content-between">
+        <p class="mb-0">&copy; 2025 PlanetBooks - All Rights Reserved</p>
+        <div>
+          <a href="TyC.html" class="text-white me-3 text-decoration-none"><i data-lucide="file-text" class="me-1"></i>
+            Terms &
+            Conditions</a>
+          <a href="#" class="text-white text-decoration-none"><i data-lucide="shield" class="me-1"></i> Privacy
+            Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="src\main\resources\static\js\TyC.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
+
 </html>
