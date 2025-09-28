@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About us - PlanetBooks</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="src\main\resources\static\css\Contacto.css">
+
+</head>
+
+<body>
+  <!--Navbar-->
+  <div th:replace="fragments/navbar :: navbar"></div>
+
+  <!-- Contact Section -->
+  <section class="py-5 bg-white text-center mt-5">
+    <div class="container">
+      <h2 class="fw-bold text-success mb-4"><i data-lucide="phone-call" class="me-2"></i> Contact Us</h2>
+      <p class="text-muted mb-5">We’re here to help you! Reach out through our channels or send us a message directly.
+      </p>
+
+      <div class="row g-4 mb-5">
+        <!-- Facebook -->
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <i data-lucide="facebook" class="text-primary fs-1 mb-3"></i>
+              <h5 class="fw-bold">Facebook</h5>
+              <p class="text-muted">Follow us and send us a message anytime.</p>
+              <a href="https://facebook.com/planetbooks" target="_blank" class="btn btn-success btn-sm">
+                <i data-lucide="arrow-right"></i> Visit Page
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- WhatsApp -->
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <i data-lucide="message-circle" class="text-success fs-1 mb-3"></i>
+              <h5 class="fw-bold">WhatsApp</h5>
+              <p class="text-muted">Instant support for your inquiries.</p>
+              <a href="https://wa.me/51999999999" target="_blank" class="btn btn-success btn-sm">
+                <i data-lucide="arrow-right"></i> Chat Now
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <i data-lucide="mail" class="text-danger fs-1 mb-3"></i>
+              <h5 class="fw-bold">Email</h5>
+              <p class="text-muted">Send us your questions anytime.</p>
+              <a href="mailto:contact@planetbooks.com" class="btn btn-success btn-sm">
+                <i data-lucide="arrow-right"></i> Send Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <h4 class="fw-bold text-success mb-4"><i data-lucide="edit-3" class="me-2"></i> Send Us a Message</h4>
+              <form>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">
+                  <i data-lucide="send" class="me-1"></i> Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Working Hours -->
+  <section class="py-5 bg-white text-center">
+    <div class="container">
+      <h3 class="fw-bold text-success mb-3"><i data-lucide="clock" class="me-2"></i> Our Schedule</h3>
+      <p class="text-muted">We are based in <strong>Lima, Peru (GMT -5)</strong></p>
+
+      <!-- Dynamic Time -->
+      <div class="mb-3">
+        <div class="d-inline-block bg-success text-white rounded px-4 py-2 shadow-sm">
+          <span id="peru-date" class="fw-bold"></span>
+          <span id="peru-time" class="fw-bold"></span>
+        </div>
+      </div>
+      <iframe scrolling="no" frameborder="no" clocktype="html5"
+        style="overflow:hidden;border:0;margin:0;padding:0;width:450px;height:210px;"
+        src="https://www.clocklink.com/html5embed.php?clock=049&timezone=Peru_Lima&color=white&size=450&Title=&Message=&Target=&From=2025,1,1,0,0,0&Color=white"></iframe>
+      <p class="mt-3">
+        <strong>Working Hours:</strong> 9:00 – 21:00 (GMT -5)<br>
+        But you can place your order <strong>anytime</strong> — we’ll process it as soon as possible.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div th:fragment="footer"></div>
+
+
+  <script src="src\main\resources\static\js\Contacto.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
