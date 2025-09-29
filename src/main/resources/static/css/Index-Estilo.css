@@ -1,0 +1,64 @@
+/* Definición de variables CSS para dimensiones */
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+}
+
+/* Encabezado fijo y estilos base */
+body {
+    padding-top: var(--header-height);
+    background-color: #f7f9fc;
+    font-family: 'Inter', sans-serif; /* Usé 'Inter' como ejemplo ya que no estaba enlazada */
+}
+
+/* Sidebar Fijo y Estilos */
+.sidebar {
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    overflow-y: auto;
+    width: var(--sidebar-width);
+    transition: all 0.3s;
+}
+
+/* Estilo general para los enlaces de navegación */
+.nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    padding: 1rem 1.5rem;
+}
+
+/* Estilo para el enlace activo o al pasar el ratón */
+.nav-link.active, .nav-link:hover {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-left: 5px solid #0dcaf0; 
+}
+
+/* Ajuste del contenido principal y sidebar para escritorio (a partir de 768px) */
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: var(--sidebar-width) !important; 
+    }
+    .sidebar {
+        width: var(--sidebar-width);
+    }
+}
+
+/* Asegurar la altura de la marca de logo en el encabezado */
+.navbar-brand {
+    height: var(--header-height) !important;
+}
+
+/* Estilo para tarjetas de métricas*/
+.metric-card-icon {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+/* Clase personalizada para aumentar el espacio inferior */
+.mb-6 {
+    margin-bottom: 3rem !important;
+}

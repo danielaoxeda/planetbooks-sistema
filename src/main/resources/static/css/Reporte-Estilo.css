@@ -1,0 +1,90 @@
+/* Definición de la altura de la cabecera */
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+}
+
+/* Encabezado fijo */
+body {
+    padding-top: var(--header-height);
+    background-color: #f7f9fc; 
+    font-family: 'Inter', sans-serif; 
+}
+
+/* Sidebar Fijo y Estilos */
+.sidebar {
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    overflow-y: auto;
+    width: var(--sidebar-width);
+    transition: all 0.3s;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    padding: 1rem 1.5rem;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-left: 5px solid #0dcaf0; 
+}
+
+/* Ajuste del contenido principal para escritorio */
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: var(--sidebar-width) !important; 
+    }
+    .sidebar {
+        width: var(--sidebar-width);
+    }
+}
+
+/* Asegurar la altura de la marca de logo */
+.navbar-brand {
+    height: var(--header-height) !important;
+}
+
+/* Estilo para tarjetas de métricas */
+.metric-card-icon {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+/* Espacio para la sección de abajo */
+.mb-6 {
+    margin-bottom: 3rem !important;
+}
+
+/* ESTILOS DE PESTAÑAS */
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+
+    color: #495057 !important; 
+    border: 0; 
+    border-bottom: 3px solid transparent; 
+    padding-left: 0.5rem; 
+    padding-right: 0.5rem; 
+    margin-right: 2rem; 
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd !important; 
+    border-bottom-color: #0d6efd; 
+    background-color: transparent !important;
+    font-weight: 600; 
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent; 
+    color: #0d6efd; 
+}
