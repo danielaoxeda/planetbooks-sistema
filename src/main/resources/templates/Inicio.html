@@ -2,206 +2,214 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - PlanetBooks</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" th:href="@{/css/Inicio.css}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - PlanetBooks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/Inicio.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
 
 </head>
 
 <body>
-  <!--Navbar-->
-  <div th:replace="fragments/navbar :: navbar"></div>
+<!--Navbar-->
+<div th:replace="fragments/navbar :: navbar"></div>
 
 
-  <!-- Hero Section -->
-  <section class="py-5 bg-white text-success mt-5">
+<!-- Hero Section -->
+<section class="py-5 bg-white text-success mt-5">
     <div class="container">
-      <div class="row align-items-center">
-        <!-- Text -->
-        <div class="col-md-6">
+        <div class="row align-items-center">
+            <!-- Text -->
+            <div class="col-md-6">
           <span class="badge bg-success text-white mb-3 px-3 py-2"><i data-lucide="graduation-cap" class="me-1"></i>
             Experts in Education</span>
-          <h1 class="fw-bold display-5">
-            Ebooks, <span class="text-success">Tools for Teaching and Learning</span>
-          </h1>
-          <p class="lead text-dark">
-            Discover our complete collection of English learning ebooks for international certifications:
-            Starters, Movers, Flyers, KET, PET, FCE, CAE, IELTS, TOEFL and more — all in one place.
-          </p>
-          <div class="d-flex gap-3 mt-4">
-            <a th:href="@{/catalogo}" class="btn btn-success text-white fw-semibold px-4"><i data-lucide="book" class="me-1"></i> View
-              Catalog</a>
-            <a th:href="@{/nosotros}" class="btn btn-outline-success fw-semibold px-4"><i data-lucide="info" class="me-1"></i> Learn
-              More</a>
-          </div>
+                <h1 class="fw-bold display-5">
+                    Ebooks, <span class="text-success">Tools for Teaching and Learning</span>
+                </h1>
+                <p class="lead text-dark">
+                    Discover our complete collection of English learning ebooks for international certifications:
+                    Starters, Movers, Flyers, KET, PET, FCE, CAE, IELTS, TOEFL and more — all in one place.
+                </p>
+                <div class="d-flex gap-3 mt-4">
+                    <a th:href="@{/catalogo}" class="btn btn-success text-white fw-semibold px-4"><i data-lucide="book"
+                                                                                                     class="me-1"></i>
+                        View
+                        Catalog</a>
+                    <a th:href="@{/nosotros}" class="btn btn-outline-success fw-semibold px-4"><i data-lucide="info"
+                                                                                                  class="me-1"></i>
+                        Learn
+                        More</a>
+                </div>
+            </div>
+            <!-- Image -->
+            <div class="col-md-6 text-center">
+                <img th:src="@{/img/books2.png}" alt="English Ebook" class="img-fluid rounded shadow-lg">
+            </div>
         </div>
-        <!-- Image -->
-        <div class="col-md-6 text-center">
-          <img th:src="@{/img/books2.png}" alt="English Ebook" class="img-fluid rounded shadow-lg">
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Editorials Section -->
-  <section class="py-5 bg-white text-center">
+<!-- Editorials Section -->
+<section class="py-5 bg-white text-center">
     <div class="container">
-      <h2 class="fw-bold text-success mb-4"><i data-lucide="library" class="me-2"></i> Top Editorials</h2>
-      <p class="text-muted mb-5">Discover the leading publishers that provide the best learning materials worldwide.</p>
+        <h2 class="fw-bold text-success mb-4"><i data-lucide="library" class="me-2"></i> Top Editorials</h2>
+        <p class="text-muted mb-5">Discover the leading publishers that provide the best learning materials
+            worldwide.</p>
 
-      <!-- Carousel -->
-      <div id="editorialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img th:src="@{/img/cambridge-logo.jpg}" class="d-block mx-auto" style="max-height: 250px;"
-              alt="Cambridge logo">
-          </div>
-          <div class="carousel-item">
-            <img th:src="@{/img/oxford-logo.png}" class="d-block mx-auto" style="max-height: 250px;" alt="Oxford logo">
-          </div>
-          <div class="carousel-item">
-            <img th:src="@{/img/kaplan-logo.png}" class="d-block mx-auto" style="max-height: 250px;" alt="Kaplan logo">
-          </div>
-          <div class="carousel-item">
-            <img th:src="@{/img/ets-logo.png}" class="d-block mx-auto" style="max-height: 250px;" alt="ETS logo">
-          </div>
-          <div class="carousel-item">
-            <img th:src="@{/img/longman-logo.png}" class="d-block mx-auto" style="max-height: 250px;"
-              alt="Longman logo">
-          </div>
+        <!-- Carousel -->
+        <div id="editorialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img th:src="@{/img/cambridge-logo.jpg}" class="d-block mx-auto" style="max-height: 250px;"
+                         alt="Cambridge logo">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/img/oxford-logo.png}" class="d-block mx-auto" style="max-height: 250px;"
+                         alt="Oxford logo">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/img/kaplan-logo.png}" class="d-block mx-auto" style="max-height: 250px;"
+                         alt="Kaplan logo">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/img/ets-logo.png}" class="d-block mx-auto" style="max-height: 250px;"
+                         alt="ETS logo">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/img/longman-logo.png}" class="d-block mx-auto" style="max-height: 250px;"
+                         alt="Longman logo">
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#editorialsCarousel"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#editorialsCarousel"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#editorialsCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#editorialsCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Benefits Section -->
-  <section class="py-5 bg-white text-center">
+<!-- Benefits Section -->
+<section class="py-5 bg-white text-center">
     <div class="container">
-      <h2 class="fw-bold text-success mb-4"><i data-lucide="star" class="me-2"></i> Why Choose PlanetBooks?</h2>
-      <p class="text-muted mb-5">We specialize in providing the best online shopping experience for English learning
-        materials.</p>
-      <div class="row g-4">
-        <div class="col-md-3">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <h5 class="fw-bold"><i data-lucide="list" class="me-1"></i> Extensive Catalog</h5>
-              <p>Updated ebooks aligned with the latest exam changes.</p>
+        <h2 class="fw-bold text-success mb-4"><i data-lucide="star" class="me-2"></i> Why Choose PlanetBooks?</h2>
+        <p class="text-muted mb-5">We specialize in providing the best online shopping experience for English learning
+            materials.</p>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i data-lucide="list" class="me-1"></i> Extensive Catalog</h5>
+                        <p>Updated ebooks aligned with the latest exam changes.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <h5 class="fw-bold"><i data-lucide="award" class="me-1"></i> Proven Experience</h5>
-              <p>Over 10 years providing resources for students and teachers worldwide.</p>
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i data-lucide="award" class="me-1"></i> Proven Experience</h5>
+                        <p>Over 10 years providing resources for students and teachers worldwide.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <h5 class="fw-bold"><i data-lucide="shield-check" class="me-1"></i> Quality Guaranteed</h5>
-              <p>High-quality ebooks that ensure effective learning.</p>
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i data-lucide="shield-check" class="me-1"></i> Quality Guaranteed</h5>
+                        <p>High-quality ebooks that ensure effective learning.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <h5 class="fw-bold"><i data-lucide="truck" class="me-1"></i> Instant Delivery</h5>
-              <p>Purchase your ebook and access it immediately.</p>
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i data-lucide="truck" class="me-1"></i> Instant Delivery</h5>
+                        <p>Purchase your ebook and access it immediately.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Testimonials Section -->
-  <section class="py-5 bg-white text-center">
+<!-- Testimonials Section -->
+<section class="py-5 bg-white text-center">
     <div class="container">
-      <h2 class="fw-bold text-success mb-4"><i data-lucide="message-circle" class="me-2"></i> What Our Customers Say
-      </h2>
-      <p class="text-muted mb-5">Real experiences from students and teachers who trust PlanetBooks.</p>
+        <h2 class="fw-bold text-success mb-4"><i data-lucide="message-circle" class="me-2"></i> What Our Customers Say
+        </h2>
+        <p class="text-muted mb-5">Real experiences from students and teachers who trust PlanetBooks.</p>
 
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <i data-lucide="graduation-cap" class="text-success fs-2 mb-3"></i>
-              <p class="fst-italic">"I found all the books I needed for my FCE exam. Excellent service!"</p>
-              <div class="text-warning mb-2">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <h6 class="fw-bold mt-3">María Gonzales</h6>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <i data-lucide="graduation-cap" class="text-success fs-2 mb-3"></i>
+                        <p class="fst-italic">"I found all the books I needed for my FCE exam. Excellent service!"</p>
+                        <div class="text-warning mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h6 class="fw-bold mt-3">María Gonzales</h6>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <i data-lucide="truck" class="text-success fs-2 mb-3"></i>
-              <p class="fst-italic">"Fast delivery and very good ebook quality. Highly recommended!"</p>
-              <div class="text-warning mb-2">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <h6 class="fw-bold mt-3">Carlos Mendoza</h6>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <i data-lucide="truck" class="text-success fs-2 mb-3"></i>
+                        <p class="fst-italic">"Fast delivery and very good ebook quality. Highly recommended!"</p>
+                        <div class="text-warning mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h6 class="fw-bold mt-3">Carlos Mendoza</h6>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-body">
-              <i data-lucide="heart" class="text-success fs-2 mb-3"></i>
-              <p class="fst-italic">"Competitive prices and personalized support. I’ll buy again."</p>
-              <div class="text-warning mb-2">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <h6 class="fw-bold mt-3">Ana del Prado</h6>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <i data-lucide="heart" class="text-success fs-2 mb-3"></i>
+                        <p class="fst-italic">"Competitive prices and personalized support. I’ll buy again."</p>
+                        <div class="text-warning mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h6 class="fw-bold mt-3">Ana del Prado</h6>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Footer -->
-  <div th:replace="fragments/footer :: footer"></div>
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
 
-  <script th:src=" @{/js/Inicio.js}">
-  </script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    lucide.createIcons();
-  </script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script>lucide.createIcons()</script>
+<script th:src="@{/js/Inicio.js}"></script>
 </body>
 
 </html>

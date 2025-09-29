@@ -1,29 +1,121 @@
- <!-- Navbar -->
-  <header th:fragment="navbar">
+<!-- Navbar -->
+<header th:fragment="navbar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
-      <div class="container">
-        <a class="navbar-brand fw-bold text-white fs-4" href="/">
-          <i data-lucide="book-open" class="me-2"></i> PlanetBooks
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active text-white fw-semibold" href="/"><i
-                  data-lucide="home" class="me-1"></i> Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/catalogo"><i data-lucide="library"
-                  class="me-1"></i> Catalog</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/nosotros"><i data-lucide="info"
-                  class="me-1"></i> About Us</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/contacto"><i data-lucide="mail"
-                  class="me-1"></i> Contact</a></li>
-            <li class="nav-item ms-3">
-              <a class="btn btn-light text-success fw-semibold px-3" href="/login"><i data-lucide="log-in"
-                  class="me-1"></i> Login</a>
-            </li>
-          </ul>
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white fs-4" th:href="@{/}">
+                <img alt="Logo PlanetBooks" th:src="@{/img/logo-planetbooks_v2.png}">
+                Planet Books
+            </a>
+            <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold"
+                           th:classappend="${currentPath == '/'} ? 'active' : ''"
+                           th:href="@{/}">
+                            <i class="me-1" data-lucide="home"></i> Home
+                        </a>
+                    </li>
+
+                    <!-- Catalog -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:classappend="${currentPath == '/catalogo'} ? 'active' : ''"
+                           th:href="@{/catalogo}">
+                            <i class="me-1" data-lucide="library"></i> Catalog
+                        </a>
+                    </li>
+
+                    <!-- About Us -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:classappend="${currentPath == '/nosotros'} ? 'active' : ''"
+                           th:href="@{/nosotros}">
+                            <i class="me-1" data-lucide="info"></i> About US
+                        </a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:classappend="${currentPath == '/contacto'} ? 'active' : ''"
+                           th:href="@{/contacto}">
+                            <i class="me-1" data-lucide="mail"></i> Contact
+                        </a>
+                    </li>
+
+                    <!-- Cart -->
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" data-bs-target="#cartModal" data-bs-toggle="modal"
+                           href="javascript:void(0)">
+                            <span class="position-relative me-1">
+                              <i data-lucide="shopping-cart"></i>
+                              <span id="cartCount"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    style="font-size: 0.7rem; min-width: 1.2rem; height: 1.2rem; display:none;">
+                                0
+                              </span>
+                            </span>
+                            Cart
+                        </a>
+                    </li>
+
+
+                    <!-- Login -->
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-light text-success fw-semibold px-3" th:href="@{/login}">
+                            <i class="me-1" data-lucide="log-in"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-  </header>
+
+    <!-- Cart Modal -->
+    <div aria-hidden="true" aria-labelledby="cartModalLabel" class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">
+                        <i class="me-1" data-lucide="shopping-cart"></i> Shopping Cart
+                    </h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+
+                <div class="modal-body">
+                    <table class="table align-middle">
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody id="cartItems">
+                        <tr>
+                            <td class="text-center" colspan="5">Your cart is empty for now.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-end fw-bold">
+                        Total: $ <span id="cartTotal">0.00</span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Continue Shopping
+                    </button>
+                    <button class="btn btn-success" type="button">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

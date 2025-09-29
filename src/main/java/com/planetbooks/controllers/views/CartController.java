@@ -6,11 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ConfirmacionCompraController {
+public class CartController {
 
-    @GetMapping({"/confirmacion-compra"})
-    public String confirmacionCompra(HttpServletRequest request, Model model) {
+    @GetMapping("/cart")
+    public String cart(HttpServletRequest request, Model model) {
         model.addAttribute("currentPath", request.getRequestURI());
-        return "ConfirmacionCompra";
+        return "Cart";
     }
 }
