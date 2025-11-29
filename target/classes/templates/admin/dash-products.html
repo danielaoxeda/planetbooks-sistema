@@ -1,0 +1,371 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - PlanetBooks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <main class="d-flex flex-nowrap">
+        <div th:insert="fragments/Sidebar :: Sidebar"></div>
+
+          <div class="main-content">
+        <div class="container mt-4">
+            <section class="text-start">
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                    <h2 class="display-4 fw-bold mb-4 text-balance"> 
+                        <svg class="bi me-1" width="50" height="50" fill="currentColor">
+                            <use xlink:href="#book"/>
+                        </svg>
+                            Product Catalog 
+                    </h2>
+
+                    <form class="d-flex flex-grow-1 ms-5" role="search">
+                        <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
+                    </form>
+
+                    <button class="btn btn-success" type="submit">+ Add Book</button>
+
+                </div>
+            </section>
+            
+            
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+
+                   <!-- Starters 1 -->
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/starters-aup-1.png" alt="starters 2 aup" class="card-img-top book-image">
+                                <span
+                                    class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                                <!-- <span
+                                    class="badge rounded-pill text-bg-danger badge-offer position-absolute top-0 end-0 m-2">Offer</span> -->
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">Starters</span>
+                                </div>
+
+                                <h5 class="card-title fw-semibold text-balance">Starters Authentic Examination Papers 1</h5>
+                                <p class="text-muted small mb-2">Cambridge University Press</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Three practice tests · PDF + MP3 + Keys
+                                </p>
+
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">$ 3.00</span>
+
+                                            <!--Estilo en caso de haber descuentos xd   <span class="price-original mb-2">$ 2.00</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Starters Mini Trainer -->
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="card book-card h-100">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="img/books/starters-minitrainer.jpg" alt="Starters Mini Trainer" class="card-img-top book-image">
+                                    <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                                    <!-- <span class="badge rounded-pill text-bg-danger badge-offer position-absolute top-0 end-0 m-2">Offer</span> -->
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="mb-2">
+                                        <span class="badge text-bg-secondary">Starters</span>
+                                    </div>
+                                    <h5 class="card-title fw-semibold text-balance">Pre A1 Starters Mini Trainer</h5>
+                                    <p class="text-muted small mb-2">Cambridge University Press</p>
+                                    <p class="card-text small text-pretty mb-3">
+                                        Two practice tests · PDF + MP3 + Keys
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <div>
+                                                <span class="price-current">$ 2.00</span>
+                                                <!--Estilo en caso de haber descuentos xd   <span class="price-original mb-2">$ 2.00</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- MOVERS - Cambridge 2017 -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/movers-cambridge-2017.jpg" alt="Movers Authentic Examination Papers 1" class="card-img-top book-image">
+                                <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">Movers</span>
+                                </div>
+                                <h5 class="card-title fw-semibold text-balance">Movers Authentic Examination Papers 1</h5>
+                                <p class="text-muted small mb-2">Cambridge University Press · 2017</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Three Practice Tests · PDF + MP3 + AK
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">S/ 10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MOVERS - Collins 2018 -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/movers-collins-2018.jpg" alt="A1 Movers Three Practice Tests" class="card-img-top book-image">
+                                <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">Movers</span>
+                                </div>
+                                <h5 class="card-title fw-semibold text-balance">A1 Movers Three Practice Tests</h5>
+                                <p class="text-muted small mb-2">Collins · 2018</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Three Practice Tests · PDF + MP3 (SB, TG, MP3)
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">S/ 10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FLYERS - Cambridge 2017 -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/flyers-cambridge-2017.jpg" alt="Flyers Authentic Examination Papers 1" class="card-img-top book-image">
+                                <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">Flyers</span>
+                                </div>
+                                <h5 class="card-title fw-semibold text-balance">Flyers Authentic Examination Papers 1</h5>
+                                <p class="text-muted small mb-2">Cambridge University Press · 2017</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Three Practice Tests · PDF + MP3 + AK
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">S/ 10.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FLYERS - Cambridge 2019 -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/flyers-cambridge-2019.jpg" alt="A2 Flyers Mini Trainer" class="card-img-top book-image">
+                                <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">Flyers</span>
+                                </div>
+                                <h5 class="card-title fw-semibold text-balance">A2 Flyers Mini Trainer</h5>
+                                <p class="text-muted small mb-2">Cambridge University Press · 2019</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Two Practice Tests · PDF + MP3 + AK
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">S/ 8.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KET - Cambridge 2024 -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/ket-cambridge-2024.jpeg" alt="KEY for Schools Trainer 2" class="card-img-top book-image">
+                                <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">KET</span>
+                                </div>
+                                <h5 class="card-title fw-semibold text-balance">KEY for Schools Trainer 2</h5>
+                                <p class="text-muted small mb-2">Cambridge University Press · 2024</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Six practice tests + Teacher's Notes · PDF + MP3 + SB + TB + AK
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">S/ 25.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KET - Oxford 2019 -->
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card book-card h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/books/ket-oxford-2019.png" alt="Key for Schools Exam Trainer" class="card-img-top book-image">
+                                <span class="badge rounded-pill text-bg-success badge-featured position-absolute top-0 start-0 m-2">Featured</span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2">
+                                    <span class="badge text-bg-secondary">KET</span>
+                                </div>
+                                <h5 class="card-title fw-semibold text-balance">Key for Schools Exam Trainer</h5>
+                                <p class="text-muted small mb-2">Oxford · 2019</p>
+                                <p class="card-text small text-pretty mb-3">
+                                    Seven practice tests · PDF + MP3 + AK
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div>
+                                            <span class="price-current">S/ 20.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="edit-2" class="me-1"></i> Edit
+                                        </button>
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger flex-fill d-flex align-items-center justify-content-center">
+                                            <i data-lucide="trash-2" class="me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/producto.js"></script>
+</body>
+</html>

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TyCController {
 
-    @GetMapping("/terminos-y-condiciones")
-    public String terminosYCondiciones(Model model) {
-        return "TyC";
+    @GetMapping("/terms-and-conditions")
+    public String termsANDconditions(Model model) {
+        return "T&C";
     }
 }

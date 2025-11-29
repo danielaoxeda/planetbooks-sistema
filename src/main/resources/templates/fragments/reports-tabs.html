@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <style>
+        .custom-tabs {
+            background-color: #1f2937;
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        .custom-tabs .nav-link {
+            color: #d1d5db;
+            font-weight: 500;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .custom-tabs .nav-link:hover {
+            background-color: #374151;
+            color: #ffffff;
+        }
+
+        .custom-tabs .nav-link.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="tabs(activeTab)">
+    <ul class="nav nav-tabs custom-tabs mb-4">
+
+        <li class="nav-item">
+            <a class="nav-link"
+               th:classappend="${activeTab == 'sales-report'} ? 'active' : ''"
+               th:href="@{/reports}">
+                Sales & Revenue Report
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link"
+               th:classappend="${activeTab == 'clients-report'} ? 'active' : ''"
+               th:href="@{/reports/clients}">
+                Clients Report
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link"
+               th:classappend="${activeTab == 'products-report'} ? 'active' : ''"
+               th:href="@{/reports/products}">
+                Products Report
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link"
+               th:classappend="${activeTab == 'failures'} ? 'active' : ''"
+               th:href="@{/reports/failures}">
+                Failures Report
+            </a>
+        </li>
+
+    </ul>
+</div>
+</body>
+</html>
+

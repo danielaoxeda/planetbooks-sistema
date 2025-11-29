@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Client</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="mb-4">Edit Client</h2>
+
+    <form th:action="@{/clients/update}" th:object="${client}" method="post" novalidate>
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" th:field="*{name}" class="form-control" required>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label>Father's Last Name</label>
+            <input type="text" th:field="*{last_name_father}" class="form-control" required>
+            <div th:if="${#fields.hasErrors('last_name_father')}" th:errors="*{last_name_father}" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label>Mother's Last Name</label>
+            <input type="text" th:field="*{last_name_mother}" class="form-control">
+            <div th:if="${#fields.hasErrors('last_name_mother')}" th:errors="*{last_name_mother}" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label>Age</label>
+            <input type="number" th:field="*{age}" class="form-control" min="18" required>
+            <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label>Username</label>
+            <input type="text" th:field="*{user}" class="form-control" required>
+            <div th:if="${#fields.hasErrors('user')}" th:errors="*{user}" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" th:field="*{email}" class="form-control" required>
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label>Country</label>
+            <input type="text" th:field="*{country}" class="form-control" required>
+            <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="text-danger"></div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a th:href="@{/clients}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

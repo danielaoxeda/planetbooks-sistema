@@ -52,45 +52,45 @@
 
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="/inicio" 
+                <a href="/dash-home"
                 class="nav-link"
-                th:classappend="${currentPath == '/inicio'} ? ' active bg-success text-white' : ' text-white'">
+                th:classappend="${currentPath == '/dash-home'} ? ' active bg-success text-white' : ' text-white'">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                 Home
                 </a>
             </li>
             
             <li>
-                <a href="/productos"
+                <a href="/dash-products"
                 class="nav-link"
-                th:classappend="${currentPath == '/productos'} ? ' active bg-success text-white' : ' text-white'">
+                th:classappend="${currentPath == '/dash-products'} ? ' active bg-success text-white' : ' text-white'">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#book"/></svg>
                 Products
                 </a>
             </li>
             
             <li>
-                <a href="/clientes"
+                <a href="/clients"
                 class="nav-link"
-                th:classappend="${currentPath == '/clientes'} ? ' active bg-success text-white' : ' text-white'">
+                th:classappend="${currentPath == '/clients'} ? ' active bg-success text-white' : ' text-white'">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                Customers
+                Clients
                 </a>
             </li>
             
             <li>
-                <a href="/reportes/ventas" 
+                <a href="/reports"
                 class="nav-link"
-                th:classappend="${currentPath == '/reportes/ventas'} ? ' active bg-success text-white' : ' text-white'">
+                th:classappend="${currentPath == '/dash-reports'} ? ' active bg-success text-white' : ' text-white'">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                Dashboard
+                Reports
                 </a>
             </li>
             
             <li>
-                <a href="/ajustes" 
+                <a href="/dash-settings"
                 class="nav-link"
-                th:classappend="${currentPath == '/ajustes'} ? ' active bg-success text-white' : ' text-white'">
+                th:classappend="${currentPath == '/dash-settings'} ? ' active bg-success text-white' : ' text-white'">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#gear"/></svg>
                 Settings
                 </a>
