@@ -1,6 +1,8 @@
 package com.planetbooks.models;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -21,13 +23,13 @@ public class Venta {
 
     private Integer quantity;
 
-    @Column(name="total_price")
-    private Double totalPrice;
+    @Column(name = "total_price")
+    private BigDecimal totalPrice;
 
     @Column(name="payment_method")
     private String paymentMethod;
 
-    @Column(name="sale_date")
+    @Column(name = "sale_date")
     private LocalDate saleDate;
 
     // Getters y Setters
@@ -43,8 +45,13 @@ public class Venta {
     public Integer getQuantity() { return quantity; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
 
-    public Double getTotalPrice() { return totalPrice; }
-    public void setTotalPrice(Double totalPrice) { this.totalPrice = totalPrice; }
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
     public String getPaymentMethod() { return paymentMethod; }
     public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }

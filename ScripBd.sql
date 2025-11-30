@@ -62,3 +62,20 @@
    ('Carlos', 'Torres', 'Fernandez', 28, 'carlost', 'carlos@gmail.com', 'Mexico', '2024-09-05', 2, 5, TRUE),
    ('Lucia', 'Martinez', 'Diaz', 22, 'luciam', 'lucia@gmail.com', 'Argentina', '2024-07-20', 1, 8, TRUE),
    ('Diego', 'Sanchez', 'Ruiz', 35, 'diegos', 'diego@gmail.com', 'Colombia', '2024-06-10', 7, 15, TRUE);
+
+   --Tabla Ventas
+CREATE TABLE ventas (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    client_id BIGINT,
+    inventory_id INT,
+    quantity INT NOT NULL,
+    total_price DECIMAL(10,2),
+    payment_method VARCHAR(50),
+    sale_date DATE,
+    FOREIGN KEY (client_id) REFERENCES clients(id),
+    FOREIGN KEY (inventory_id) REFERENCES inventory(id)
+);
+
+
+
+

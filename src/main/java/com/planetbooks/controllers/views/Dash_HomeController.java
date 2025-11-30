@@ -8,11 +8,12 @@ import com.planetbooks.repositories.VentaRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,11 +29,11 @@ public class Dash_HomeController {
     public String catalog(HttpServletRequest request, Model model) {
 
         model.addAttribute("currentPath", request.getRequestURI());
-        
+
         try {
             // Total de ventas mensuales
-            Double monthlySales = ventaRepository.getMonthlySales();
-            model.addAttribute("monthlySales", monthlySales != null ? monthlySales : 0.0);
+            BigDecimal monthlySales = ventaRepository.getMonthlySales();
+            model.addAttribute("monthlySales", monthlySales != null ? monthlySales : BigDecimal.ZERO);
 
             // Total de libros vendidos
             Integer totalBooksSold = ventaRepository.getTotalBooksSold();
@@ -56,7 +57,7 @@ public class Dash_HomeController {
 
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("monthlySales", 0.0);
+            model.addAttribute("monthlySales", BigDecimal.ZERO);
             model.addAttribute("totalBooksSold", 0);
             model.addAttribute("newClientsCount", 0);
             model.addAttribute("newClients", null);
@@ -69,15 +70,22 @@ public class Dash_HomeController {
         List<Client> latestClients = clientRepository.findLatest5ActiveClients();
         model.addAttribute("latestClients", latestClients);
 
-        // 🔥 NUEVO: Últimos 5 libros vendidos (para tu tabla dinámica)
+        // 🔥 Últimos 5 libros vendidos (para tabla dinámica)
         List<LatestSold> latestBooks = ventaRepository.findLatestBooksSold();
         model.addAttribute("latestBooks", latestBooks);
 
+        // ✅ Clientes por país para gráfico de pastel
+        List<Object[]> countryData = clientRepository.getClientsByCountry();
+        List<String> countryLabels = new ArrayList<>();
+        List<Long> countryTotals = new ArrayList<>();
 
-        // Datos de clientes por país
-      
-        
-        
+        for (Object[] row : countryData) {
+            countryLabels.add((String) row[0]);
+            countryTotals.add(((Number) row[1]).longValue());
+        }
+
+        model.addAttribute("countryLabels", countryLabels);
+        model.addAttribute("countryData", countryTotals);
 
         return "admin/dash-home";
     }

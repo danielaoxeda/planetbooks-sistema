@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -21,10 +22,12 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
     // Últimos 5 ventas
     List<Venta> findTop5ByOrderBySaleDateDesc();
 
-    // Total de ventas mensuales
-   @Query("SELECT SUM(v.totalPrice) FROM Venta v " +
-       "WHERE MONTH(v.saleDate) = MONTH(CURRENT_DATE) AND YEAR(v.saleDate) = YEAR(CURRENT_DATE)")
-Double getMonthlySales();
+    // Suma de ventas del mes actual
+    @Query(value = "SELECT COALESCE(SUM(total_price), 0) FROM ventas " +
+            "WHERE YEAR(sale_date) = YEAR(CURRENT_DATE) " +
+            "AND MONTH(sale_date) = MONTH(CURRENT_DATE)", nativeQuery = true)
+    BigDecimal getMonthlySales();
+
 
   @Query("SELECT SUM(v.quantity) FROM Venta v")
 Integer getTotalBooksSold();

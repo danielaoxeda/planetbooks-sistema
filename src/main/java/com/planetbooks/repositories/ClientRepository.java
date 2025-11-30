@@ -1,14 +1,13 @@
 package com.planetbooks.repositories;
 
-import com.planetbooks.models.Client;
 
+import com.planetbooks.models.Client;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
@@ -20,10 +19,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Query("SELECT c FROM Client c WHERE c.active = true ORDER BY c.id DESC")
     List<Client> findLatest5ActiveClients();
 
-
-    @Query("SELECT c.country AS country, COUNT(c) AS total FROM Client c WHERE c.active = true GROUP BY c.country")
-List<Map<String, Object>> getClientsByCountry();
-
-    
-
+    // Traer la cantidad de clientes activos por país
+    @Query("SELECT c.country, COUNT(c) FROM Client c WHERE c.active = true GROUP BY c.country")
+    List<Object[]> getClientsByCountry();
 }
