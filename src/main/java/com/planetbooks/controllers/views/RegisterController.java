@@ -1,15 +1,17 @@
 package com.planetbooks.controllers.views;
 
+import com.planetbooks.models.Client;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import ch.qos.logback.core.model.Model;
 
 @Controller
 public class RegisterController {
-    
+
     @GetMapping("/register")
-    public String createAccount(Model model) {
+    public String showRegisterForm(Model model) {
+        model.addAttribute("client", new Client());
         return "Register";
     }
+
 }
