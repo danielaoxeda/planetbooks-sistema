@@ -78,3 +78,59 @@
 .footer-bottom .links a:hover {
   color: #00c853;
 }
+.btn-cart {
+    background-color: #28a745; /* Verde ecommerce */
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 10px 14px;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.25);
+}
+
+.btn-cart:hover {
+    background-color: #218838; /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(33, 136, 56, 0.35);
+}
+
+.btn-cart:active {
+    transform: scale(0.97);
+}
+
+.btn-cart i {
+    width: 20px;
+    height: 20px;
+}
+
+.image-wrapper {
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+.book-image {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.exam-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #343a40 !important;
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    z-index: 10;
+}
+
+.price-big {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2D74A8;
+}

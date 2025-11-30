@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "inventory")
@@ -15,18 +16,31 @@ public class Inventory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank
     private String exam;
+
+    @NotBlank
     private String level;
 
     @Column(name = "material_type")
     private String materialType;
 
+    @NotBlank
     private String publisher;
+
     private Integer year;
     private String format;
+
+    @NotBlank
     private String title;
+
     private String description;
+
+    @NotBlank
     private String price;
+
+    private String img;
+
 
     // Getters and Setters
     public Integer getId() {
@@ -107,5 +121,13 @@ public class Inventory {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }
