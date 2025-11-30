@@ -73,6 +73,12 @@ public class Dash_HomeController {
         List<LatestSold> latestBooks = ventaRepository.findLatestBooksSold();
         model.addAttribute("latestBooks", latestBooks);
 
+
+        // Datos de clientes por país
+      
+        
+        
+
         return "admin/dash-home";
     }
 }

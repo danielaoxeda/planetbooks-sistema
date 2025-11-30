@@ -45,4 +45,6 @@ Integer getTotalBooksSold();
         LIMIT 5
     """, nativeQuery = true)
     List<LatestSold> findLatestBooksSold();
+
+
 }
