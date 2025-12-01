@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
    if (checkoutBtn) {
        checkoutBtn.addEventListener("click", () => {
+       console.log("aaa")
 
            if (!userLogged) {
                window.sonner?.error("Please log in to proceed.");

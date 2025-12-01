@@ -35,17 +35,18 @@ Integer getTotalBooksSold();
 
 
  @Query(value = """
-        SELECT 
-            i.id AS bookId,
-            i.title AS bookTitle,
-            v.sale_date AS lastSoldDate,
-            CONCAT(c.first_name, ' ', c.last_name_father) AS clientName,
-            c.email AS clientEmail
-        FROM ventas v
-        JOIN inventory i ON v.inventory_id = i.id
-        JOIN clients c ON v.client_id = c.id
-        ORDER BY v.sale_date DESC
-        LIMIT 5
+        SELECT\s
+                 i.id AS bookId,
+                 i.title AS bookTitle,
+                 v.sale_date AS lastSoldDate,
+                 CONCAT(c.name, ' ', c.last_name_father) AS clientName,
+                 c.email AS clientEmail
+             FROM ventas v
+             JOIN inventory i ON v.inventory_id = i.id
+             JOIN clients c ON v.client_id = c.id
+             ORDER BY v.sale_date DESC
+             LIMIT 5;
+         
     """, nativeQuery = true)
     List<LatestSold> findLatestBooksSold();
 

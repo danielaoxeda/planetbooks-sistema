@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("aaa")
 
     // ----- ELEMENTOS DOM -----
     const cartItemsModal = document.getElementById("cartItems");
@@ -149,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
    if (checkoutBtn) {
        checkoutBtn.addEventListener("click", () => {
+       console.log("aaa")
 
            if (!userLogged) {
                window.sonner?.error("Please log in to proceed.");

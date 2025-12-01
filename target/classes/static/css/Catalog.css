@@ -134,3 +134,29 @@
     font-weight: 700;
     color: #2D74A8;
 }
+
+.catalog-actions {
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.checkout-btn {
+    font-size: 1.25rem;
+    padding: 0.9rem 2.5rem;
+    border-radius: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-btn:active {
+    transform: scale(0.97);
+}
