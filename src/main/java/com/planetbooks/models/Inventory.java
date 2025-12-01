@@ -23,7 +23,7 @@ public class Inventory {
     private String level;
 
     @Column(name = "material_type")
-    private String materialType;
+    private String material_type;
 
     @NotBlank
     private String publisher;
@@ -67,12 +67,12 @@ public class Inventory {
         this.level = level;
     }
 
-    public String getMaterialType() {
-        return materialType;
+    public String getMaterial_type() {
+        return material_type;
     }
 
-    public void setMaterialType(String materialType) {
-        this.materialType = materialType;
+    public void setMaterial_type(String material_type) {
+        this.material_type = material_type;
     }
 
     public String getPublisher() {

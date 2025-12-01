@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog - PlanetBooks</title>
+    <title>Catalog - Planet Books</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/Catalog.css}">
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
@@ -65,12 +70,22 @@
 
             <section class="col-md-9 col-lg-10">
                 <div class="row g-4" id="book-list">
-                    <div th:replace="fragments/catalog-starters :: catalog-starters"></div>
-                    <div th:replace="fragments/catalog-movers :: catalog-movers"></div>
-                    <div th:replace="fragments/catalog-flyers :: catalog-flyers"></div>
-                    <div th:replace="fragments/catalog-ket :: catalog-ket"></div>
+
+                    <div th:replace="fragments/catalog_book-card ::
+                book-card(${starters}, 'starters')"></div>
+
+                    <div th:replace="fragments/catalog_book-card ::
+                book-card(${movers}, 'movers')"></div>
+
+                    <div th:replace="fragments/catalog_book-card ::
+                book-card(${flyers}, 'flyers')"></div>
+
+                    <div th:replace="fragments/catalog_book-card ::
+                book-card(${ket}, 'ket')"></div>
+
                 </div>
             </section>
+
         </div>
     </div>
 </main>

@@ -40,7 +40,7 @@
    -- Clients Table
    CREATE TABLE clients (
        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-       first_name VARCHAR(100),
+       name VARCHAR(100),
        last_name_father VARCHAR(100),
        last_name_mother VARCHAR(100),
        age INT,

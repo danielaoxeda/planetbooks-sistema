@@ -1,0 +1,62 @@
+<th:block th:fragment="book-card(list, category)" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <div th:each="book : ${list}"
+         class="col-sm-6 col-lg-4 col-xl-3"
+         th:attr="data-category=${category}">
+
+        <div class="card book-card h-100">
+
+            <div class="position-relative overflow-hidden image-wrapper">
+                <span class="badge exam-badge" th:text="${book.exam}"></span>
+                <img th:src="@{'/uploads/books/' + ${book.img}}"
+                     class="card-img-top book-image"
+                     alt="Book Cover">
+            </div>
+
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-semibold text-balance"
+                    th:text="${book.title}"></h5>
+
+                <p class="text-muted small mb-2"
+                   th:text="${book.publisher}"></p>
+
+                <p class="card-text small text-pretty mb-3"
+                   th:text="${book.description}"></p>
+
+                <div class="mt-auto">
+                    <span class="price-current price-big"
+                          th:text="'$ ' + ${#numbers.formatDecimal(book.price, 1, 2)}"></span>
+
+                    <div class="d-flex gap-2 mt-3">
+
+                        <button class="btn btn-warning w-50"
+                                th:data-id="${book.id}"
+                                th:data-title="${book.title}"
+                                th:data-publisher="${book.publisher}"
+                                th:data-description="${book.description}"
+                                th:data-exam="${book.exam}"
+                                th:data-level="${book.level}"
+                                th:data-price="${book.price}"
+                                th:data-material="${book.material_type}"
+                                th:data-year="${book.year}"
+                                th:data-format="${book.format}"
+                                onclick="loadBookData(this)">
+                            Edit
+                        </button>
+
+                        <form th:action="@{'/dash-products/delete/' + ${book.id}}"
+                              method="post"
+                              class="w-50"
+                              onsubmit="return confirm('Are you sure?');">
+                            <button class="btn btn-danger w-100" type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</th:block>
