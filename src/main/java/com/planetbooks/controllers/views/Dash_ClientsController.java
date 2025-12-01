@@ -85,7 +85,7 @@ public class Dash_ClientsController {
     // LIST DELETED CLIENTS
     @GetMapping("/clients/deleted")
     public String showDeletedClients(Model model) {
-        List<Client> deletedClients = clientRepository.findByActiveFalse();
+        List<Client> deletedClients = clientRepository.findByActiveTrue();
         model.addAttribute("clients", deletedClients);
         return "admin/delete_client";
     }

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PlanetbooksApplication<planetbooks>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.planetbooks.PlanetbooksApplication",
+            "projectName": "planetbooks",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
