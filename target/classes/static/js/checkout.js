@@ -7,8 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutPageItems = document.getElementById("cartPageItems");
     const checkoutPageTotal = document.getElementById("cartPageTotal");
 
-    const checkoutBtn = document.getElementById("checkoutBtn");
+    const checkoutCatalogBtn = document.getElementById("checkoutCatalogBtn");
+    const checkoutModalBtn = document.getElementById("checkoutModalBtn");
     const cartCount = document.getElementById("cartCount");
+
+    console.log("[checkout] Botones:", {
+        checkoutCatalogBtn,
+        checkoutModalBtn
+    });
 
     // ----- CART -----
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -25,11 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
         cartCount.style.display = count > 0 ? "inline-block" : "none";
     }
 
+    // ----- TOTAL -----
+    function getTotal() {
+        return cart.reduce((s, i) => s + parseFloat(i.price) * i.quantity, 0);
+    }
+
     // ----- RENDER GLOBAL (Modal + Cart.html) -----
     function renderCart() {
 
         // ----- MODAL -----
-        if (cartItemsModal) {
+        if (cartItemsModal && cartTotalModal) {
             if (cart.length === 0) {
                 cartItemsModal.innerHTML = `
                     <tr><td colspan="5" class="text-center">Your cart is empty for now.</td></tr>
@@ -59,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // ----- CART PAGE -----
-        if (checkoutPageItems) {
+        if (checkoutPageItems && checkoutPageTotal) {
             if (cart.length === 0) {
                 checkoutPageItems.innerHTML = `
                     <tr><td colspan="5" class="text-center">Your cart is empty.</td></tr>
@@ -85,11 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateCartCount();
-    }
-
-    // ----- TOTAL -----
-    function getTotal() {
-        return cart.reduce((s, i) => s + parseFloat(i.price) * i.quantity, 0);
     }
 
     // ----- AGREGAR PRODUCTOS -----
@@ -145,54 +151,77 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ----- CHECKOUT -----
-   const userLogged = document.body.dataset.user === "true";
+    const userLogged = document.body.dataset.user === "true";
+    console.log("[checkout] userLogged:", userLogged, "data-user:", document.body.dataset.user);
 
-   if (checkoutBtn) {
-       checkoutBtn.addEventListener("click", () => {
-       console.log("aaa")
+    function handleCheckout(event) {
+        console.log("[checkout] Click en:", event.currentTarget.id);
 
-           if (!userLogged) {
-               window.sonner?.error("Please log in to proceed.");
-               window.location.href = "/login";
-               return;
-           }
+        if (!userLogged) {
+            console.log("[checkout] Usuario NO logueado, redirigiendo a /login");
+            window.sonner?.error("Please log in to proceed.");
+            window.location.href = "/login";
+            return;
+        }
 
-           if (cart.length === 0) {
-               window.sonner?.error("Your cart is empty!");
-               return;
-           }
+        if (cart.length === 0) {
+            console.log("[checkout] Carrito vacío");
+            window.sonner?.error("Your cart is empty!");
+            return;
+        }
 
-           window.location.href = "/cart";
-       });
-   }
+        console.log("[checkout] Redirigiendo a /checkout");
+        window.location.href = "/checkout";
+    }
 
+    if (checkoutCatalogBtn) {
+        checkoutCatalogBtn.addEventListener("click", handleCheckout);
+        console.log("[checkout] Listener agregado a checkoutCatalogBtn");
+    }
+
+    if (checkoutModalBtn) {
+        checkoutModalBtn.addEventListener("click", handleCheckout);
+        console.log("[checkout] Listener agregado a checkoutModalBtn");
+    }
 
     // ----- Inicializar -----
     renderCart();
 });
-
 
 // ---------------------------
 // PAYPAL BUTTONS
 // ---------------------------
 if (document.getElementById("paypal-button-container")) {
     paypal.Buttons({
-        createOrder: function (data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: { value: getTotal().toFixed(2) }
-                }]
-            });
-        },
-        onApprove: function (data, actions) {
-            return actions.order.capture().then(function (orderData) {
-                notify("Payment completed!", "success");
 
-                localStorage.removeItem("cart");
-                setTimeout(() => {
-                    window.location.href = "/success";
-                }, 500);
+        createOrder() {
+            const total = document.getElementById("cartPageTotal").innerText;
+
+            return fetch("/api/paypal/create-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ amount: total })
+            })
+            .then(res => res.json())
+            .then(data => data.id);
+        },
+
+        onApprove(data) {
+            return fetch("/api/paypal/capture-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ orderId: data.orderID })
+            })
+            .then(res => res.json())
+            .then(result => {
+
+                if (result.status === "COMPLETED") {
+                    window.sonner.toast.success("Payment successful! Sending your books...");
+                    window.location.href = "/checkout/success";
+                }
             });
         }
-    }).render('#paypal-button-container');
+
+    }).render("#paypal-button-container");
 }
+

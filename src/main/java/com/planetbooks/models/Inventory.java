@@ -41,6 +41,8 @@ public class Inventory {
 
     private String img;
 
+    private String drive_link;
+
 
     // Getters and Setters
     public Integer getId() {
@@ -130,4 +132,8 @@ public class Inventory {
     public void setImg(String img) {
         this.img = img;
     }
+
+    public String getDrive_link() {return drive_link;}
+
+    public void setDrive_link(String drive_link) {this.drive_link = drive_link;}
 }

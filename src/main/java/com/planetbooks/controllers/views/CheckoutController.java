@@ -7,10 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class CartController {
+public class CheckoutController {
 
-    @GetMapping("/cart")
-    public String cart(HttpServletRequest request, HttpSession session, Model model) {
+    @GetMapping("/checkout")
+    public String checkout(HttpServletRequest request, HttpSession session, Model model) {
         // Check if the user is logged in
         if (session.getAttribute("user") == null) {
             return "redirect:/login";
@@ -19,6 +19,6 @@ public class CartController {
         model.addAttribute("currentPath", request.getRequestURI());
 
 
-        return "Cart";
+        return "Checkout";
     }
 }
