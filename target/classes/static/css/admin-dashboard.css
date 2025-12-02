@@ -1,0 +1,102 @@
+/* Color principal de PlanetBooks (Verde Oscuro de tu botón) */
+:root {
+    --planetbooks-green-accent: #28a745;
+    --planetbooks-dark-bg: #0e1624; /* Fondo oscuro de tu Footer */
+    --planetbooks-text-light: #ccc; /* Color de texto del Footer */
+    --planetbooks-hover: #00c853; /* Color de hover de tu Footer */
+    --planetbooks-link-price: #2D74A8; /* Azul para precios/enlaces importantes */
+}
+
+body {
+    background-color: #f4f6f9; /* Fondo muy claro para el dashboard */
+    font-family: Arial, sans-serif;
+}
+
+/* --- Cabecera/Header del Dashboard --- */
+.admin-header {
+    background-color: var(--planetbooks-dark-bg);
+    color: #fff;
+    padding: 15px 0;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.admin-header h3 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.admin-header a {
+    color: var(--planetbooks-text-light);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.admin-header a:hover {
+    color: var(--planetbooks-hover);
+}
+
+/* --- Títulos Principales --- */
+.dashboard-title {
+    color: var(--planetbooks-dark-bg);
+    font-weight: 700;
+    border-bottom: 2px solid var(--planetbooks-green-accent);
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+/* --- Tarjetas del Dashboard (Paneles de Control) --- */
+.dashboard-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    height: 100%; 
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Colores de las Tarjetas */
+.card-inventory {
+    border-top: 5px solid var(--planetbooks-green-accent);
+}
+.card-clients {
+    border-top: 5px solid var(--planetbooks-link-price);
+}
+.card-reports {
+    border-top: 5px solid #ffc107; /* Amarillo de advertencia */
+}
+
+/* Botones de Acción (como tu btn-cart) */
+.btn-admin-action {
+    background-color: var(--planetbooks-green-accent); 
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.25);
+}
+
+.btn-admin-action:hover {
+    background-color: var(--planetbooks-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 200, 83, 0.35);
+}
+
+/* --- Footer del Dashboard --- */
+.admin-footer {
+    background-color: var(--planetbooks-dark-bg);
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 50px;
+}
