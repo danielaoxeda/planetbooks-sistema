@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.planetbooks.DTO.SaleTransactionRowDTO; // Importa el DTO
+import com.planetbooks.DTO.SalesExcelDTO;
 import com.planetbooks.repositories.VentaRepository;
 import com.planetbooks.services.ExcelGeneratorService;
 import com.planetbooks.services.ReporteTransactionService; // Importa el servicio
@@ -100,7 +101,7 @@ public class Dash_ReportsController {
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
             @RequestParam(required = false) String category) throws IOException {
 
-        List<SaleTransactionRowDTO> data = ventaRepository.findFilteredSaleTransactions(startDate, endDate, category);
+        List<SalesExcelDTO> data = ventaRepository.findForExcelExport(startDate, endDate, category);
         ByteArrayInputStream in = excelGeneratorService.generateSalesExcel(data);
 
         HttpHeaders headers = new HttpHeaders();
