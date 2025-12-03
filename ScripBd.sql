@@ -81,3 +81,47 @@ CREATE TABLE ventas (
     FOREIGN KEY (client_id) REFERENCES clients(id),
     FOREIGN KEY (inventory_id) REFERENCES inventory(id)
 );
+
+INSERT INTO ventas (client_id, inventory_id, quantity, total_price, payment_method, sale_date) VALUES
+(1, 1, 1, 3.00, 'PayPal', '2024-10-02'),
+(2, 3, 2, 6.00, 'Tarjeta', '2024-10-05'),
+(3, 5, 1, 4.00, 'Yape', '2024-10-08'),
+(4, 2, 3, 6.00, 'Efectivo', '2024-10-12'),
+(5, 4, 1, 3.00, 'PayPal', '2024-10-18'),
+
+(1, 6, 2, 8.00, 'Tarjeta', '2024-10-25'),
+(3, 7, 1, 5.00, 'Yape', '2024-10-28'),
+(2, 8, 2, 10.00, 'Efectivo', '2024-10-30'),
+
+(5, 1, 1, 3.00, 'Tarjeta', '2024-11-03'),
+(4, 3, 2, 6.00, 'PayPal', '2024-11-06'),
+(2, 4, 3, 9.00, 'Tarjeta', '2024-11-10'),
+(1, 5, 1, 4.00, 'Efectivo', '2024-11-13'),
+(3, 2, 2, 4.00, 'PayPal', '2024-11-17'),
+(4, 8, 1, 5.00, 'Yape', '2024-11-21'),
+(5, 6, 2, 8.00, 'Tarjeta', '2024-11-27');
+
+INSERT INTO ventas (client_id, inventory_id, quantity, total_price, payment_method, sale_date) VALUES
+-- Noviembre 2025
+(1, 8, 1, 5.00, 'Yape', '2025-11-05'),
+(3, 1, 2, 6.00, 'PayPal', '2025-11-07'),
+(2, 6, 1, 4.00, 'Efectivo', '2025-11-08'),
+(4, 3, 3, 9.00, 'Tarjeta', '2025-11-12'),
+(5, 5, 1, 4.00, 'Yape', '2025-11-15'),
+(1, 2, 2, 4.00, 'Tarjeta', '2025-11-18'),
+(3, 4, 1, 3.00, 'PayPal', '2025-11-20'),
+(2, 7, 3, 15.00, 'Efectivo', '2025-11-23'),
+(4, 1, 1, 3.00, 'Yape', '2025-11-25'),
+(5, 3, 2, 6.00, 'Tarjeta', '2025-11-28'),
+
+-- Diciembre 2025 (Días más recientes)
+(1, 6, 1, 4.00, 'Efectivo', '2025-12-01'),
+(3, 8, 2, 10.00, 'PayPal', '2025-12-01'),
+(2, 5, 1, 4.00, 'Tarjeta', '2025-12-02'),
+(4, 4, 1, 3.00, 'Yape', '2025-12-02');
+
+INSERT INTO ventas (client_id, inventory_id, quantity, total_price, payment_method, sale_date) VALUES
+-- febrero 2025
+(1, 6, 1, 4.00, 'Efectivo', '2025-02-01'),
+(1, 8, 1, 4.00, 'Efectivo', '2025-02-01'),
+(1, 8, 1, 5.00, 'Yape', '2025-02-03');

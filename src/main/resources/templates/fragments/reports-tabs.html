@@ -41,25 +41,9 @@
 
         <li class="nav-item">
             <a class="nav-link"
-               th:classappend="${activeTab == 'clients-report'} ? 'active' : ''"
-               th:href="@{/reports/clients}">
-                Clients Report
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link"
                th:classappend="${activeTab == 'products-report'} ? 'active' : ''"
                th:href="@{/reports/products}">
                 Products Report
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link"
-               th:classappend="${activeTab == 'failures'} ? 'active' : ''"
-               th:href="@{/reports/failures}">
-                Failures Report
             </a>
         </li>
 
