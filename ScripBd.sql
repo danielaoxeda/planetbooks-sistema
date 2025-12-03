@@ -45,7 +45,7 @@ CREATE TABLE clients (
     last_name_father VARCHAR(100),
     last_name_mother VARCHAR(100),
     age INT,
-    username VARCHAR(100),
+    user VARCHAR(100),
     email VARCHAR(150),
     password VARCHAR(255),
     country VARCHAR(100),
@@ -57,7 +57,7 @@ CREATE TABLE clients (
 
 -- INSERTS FOR CLIENTS
 INSERT INTO clients
-(name, last_name_father, last_name_mother, age, username, email, password, country, registration_date, purchases, sessions, active)
+(name, last_name_father, last_name_mother, age, user, email, password, country, registration_date, purchases, sessions, active)
 VALUES
 ('Juan', 'Perez', 'Gomez', 25, 'juanp', 'juanp@gmail.com',"1234", 'Peru', '2024-10-01', 3, 10, TRUE),
 ('Maria', 'Lopez', 'Ramirez', 30, 'marial', 'maria@gmail.com',"1234", 'Chile', '2024-08-15', 5, 20, TRUE),

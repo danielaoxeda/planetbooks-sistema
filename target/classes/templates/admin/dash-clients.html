@@ -29,18 +29,21 @@
                                 <div>
                                     <span class="fw-bold fs-5 d-block mb-1">Clients List</span>
                                     <small class="text-muted">
-                                        <span>Total Registered Clients: (Num)</span>
-                                        <span class="ms-3">Total Non-Registered Clients: (Num)</span>
+                                        <span>Total Registered Clients: <strong th:text="${totalActive}"></strong></span>
+                                        <span class="ms-3">Total Deleted Clients: <strong th:text="${totalDeleted}"></strong></span>
                                     </small>
                                 </div>
                                 <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <input type="text" class="form-control w-auto" placeholder="Search customers...">
-                                    <button class="btn btn-success w-auto">Filter</button>
-                                    <button class="btn btn-secondary w-auto" onclick="window.location.href='/clients_deleted'">
-                                        View Deleted
-                                    </button>
+                                    <form class="d-flex align-items-center gap-2 flex-wrap" method="get" th:action="@{/clients}">
+                                        <input type="text"
+                                            name="search"
+                                            class="form-control w-auto"
+                                            placeholder="Search customers..."
+                                            th:value="${search}">
+                                        <button class="btn btn-success w-auto" type="submit">Search</button>
+                                    </form>
+                                    <button class="btn btn-secondary w-auto" onclick="window.location.href='/clients/deleted'"> View Deleted </button>
                                 </div>
-                                
                             </div>
                     </section>
                 <!-- clients table-->

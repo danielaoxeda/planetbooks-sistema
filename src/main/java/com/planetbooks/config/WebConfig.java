@@ -5,19 +5,25 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        registry.addResourceHandler("/uploads/**")
-                .addResourceLocations("file:C:/Users/Daniela/Documents/marco-desarrollo/planetbooks-frontend/uploads/");
+        Path uploadDir = Paths.get("uploads/books");
+        String uploadPath = uploadDir.toFile().getAbsolutePath();
 
+        registry.addResourceHandler("/img/books/**")
+                .addResourceLocations("file:" + uploadPath + "/");
     }
+
     @PostConstruct
     public void init() {
-        System.out.println("Serving uploads from: C:/Users/Daniela/Documents/marco-desarrollo/planetbooks-frontend/uploads/");
+        Path uploadDir = Paths.get("uploads/books");
+        System.out.println("Serving book images from: " + uploadDir.toFile().getAbsolutePath());
     }
-
 }

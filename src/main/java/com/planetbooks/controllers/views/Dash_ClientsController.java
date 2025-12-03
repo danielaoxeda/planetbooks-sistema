@@ -15,6 +15,8 @@ import org.springframework.validation.BindingResult;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class Dash_ClientsController {
@@ -23,17 +25,9 @@ public class Dash_ClientsController {
     private ClientRepository clientRepository;
 
     public Dash_ClientsController() {}
-    // LIST ACTIVE CLIENTS
-    @GetMapping({"/clients"})
-    public String showClients(HttpServletRequest request, Model model) {
-        List<Client> clients = clientRepository.findByActiveTrue();
-        model.addAttribute("clients", clients);
-        model.addAttribute("totalClients", clients.size());
-        model.addAttribute("currentPath", request.getRequestURI());
-        return "admin/dash-clients";
-    }
+   
+    //SOFT DELETE CLIENT
 
-    // SOFT DELETE CLIENT
     @GetMapping("/clients/delete/{id}")
     public String deleteClient(@PathVariable Long id) {
         Client client = clientRepository.findById(id).orElse(null);
@@ -44,7 +38,8 @@ public class Dash_ClientsController {
         return "redirect:/clients";
     }
 
-    // EDIT CLIENT
+    //EDIT CLIENT
+
      @GetMapping("/clients/edit/{id}")
      public String showEditForm(@PathVariable Long id, Model model) {
          Optional<Client> client = clientRepository.findById(id);
@@ -85,10 +80,11 @@ public class Dash_ClientsController {
     // LIST DELETED CLIENTS
     @GetMapping("/clients/deleted")
     public String showDeletedClients(Model model) {
-        List<Client> deletedClients = clientRepository.findByActiveTrue();
-        model.addAttribute("clients", deletedClients);
-        return "admin/delete_client";
+    List<Client> deletedClients = clientRepository.findByActiveFalse();
+    model.addAttribute("clients", deletedClients);
+    return "admin/delete_client";
     }
+
 
     // RESTORE CLIENT
     @GetMapping("/clients/restore/{id}")
@@ -127,4 +123,32 @@ public class Dash_ClientsController {
         model.addAttribute("client", new Client());
         return "register";
     }
+
+    //resumen en dash-clientes
+    @GetMapping({"/clients"})
+    public String showClients(HttpServletRequest request, Model model,
+                          @RequestParam(value = "search", required = false) String search) {
+
+    List<Client> clients;
+
+    // Si hay búsqueda
+    if (search != null && !search.isEmpty()) {
+        clients = clientRepository.searchClients(search);
+        model.addAttribute("search", search);
+    } else {
+        clients = clientRepository.findByActiveTrue();
+    }
+
+    // Contadores
+    int totalActive = clientRepository.findByActiveTrue().size();
+    int totalDeleted = clientRepository.findByActiveFalse().size();
+
+    model.addAttribute("clients", clients);
+    model.addAttribute("totalActive", totalActive);
+    model.addAttribute("totalDeleted", totalDeleted);
+
+    model.addAttribute("currentPath", request.getRequestURI());
+    return "admin/dash-clients";
+    }
+
 }

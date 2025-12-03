@@ -1,0 +1,206 @@
+/* ===== PALETA PRINCIPAL DARK PREMIUM ===== */
+:root {
+  --bg-dark: #121212;
+  --bg-darker: #0D0D0D;
+  --bg-card: #1E1E1E;
+  --text-light: #E6E6E6;
+  --text-muted: #9E9E9E;
+  --accent-blue: #4EA1FF;
+  --accent-green: #16A34A;
+  --accent-red: #DC2626;
+  --border-light: #2A2A2A;
+  --hover-bg: #272727;
+}
+
+/* Aplicar modo oscuro global */
+.dark-mode {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light) !important;
+}
+
+/* Textos generales */
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4,
+.dark-mode h5, .dark-mode h6, .dark-mode p, .dark-mode span,
+.dark-mode small, .dark-mode label {
+  color: var(--text-light) !important;
+}
+
+/* Enlaces */
+.dark-mode a {
+  color: var(--accent-blue) !important;
+  text-decoration: none;
+}
+.dark-mode a:hover {
+  color: #6FB7FF !important;
+}
+
+/* Fondos de contenedores/cards/tablas */
+.dark-mode .card,
+.dark-mode .tab-content,
+.dark-mode .container,
+.dark-mode .table-responsive,
+.dark-mode .table {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-light) !important;
+  color: var(--text-light) !important;
+}
+
+/* Tablas: cabecera, filas, hover */
+.dark-mode table {
+  color: var(--text-light) !important;
+  border-color: var(--border-light) !important;
+}
+.dark-mode table thead {
+  background-color: var(--bg-darker) !important;
+  color: #FFFFFF !important;
+}
+.dark-mode table tbody tr {
+  background-color: var(--bg-card) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+.dark-mode table tbody tr:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Form controls: inputs, selects, textarea */
+.dark-mode input, .dark-mode select, .dark-mode textarea,
+.dark-mode .form-control, .dark-mode .form-select {
+  background-color: var(--bg-darker) !important;
+  color: var(--text-light) !important;
+  border: 1px solid var(--border-light) !important;
+}
+.dark-mode ::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Botones */
+.dark-mode .btn {
+  color: #FFFFFF !important;
+  border: 1px solid var(--border-light) !important;
+}
+.dark-mode .btn-primary {
+  background-color: var(--accent-blue) !important;
+  border-color: #1E88FF !important;
+}
+.dark-mode .btn-success {
+  background-color: var(--accent-green) !important;
+  border-color: #138C3F !important;
+}
+.dark-mode .btn-danger {
+  background-color: var(--accent-red) !important;
+  border-color: #B91C1C !important;
+}
+.dark-mode .btn-outline-success {
+  color: var(--accent-green) !important;
+  border-color: var(--accent-green) !important;
+}
+.dark-mode .btn-outline-success:hover {
+  background-color: var(--accent-green) !important;
+  color: #fff !important;
+}
+
+/* Sidebar / Navbar / Menús */
+.dark-mode .sidebar,
+.dark-mode .navbar,
+.dark-mode .nav,
+.dark-mode .nav-pills .nav-link {
+  background-color: var(--bg-darker) !important;
+  color: var(--text-light) !important;
+}
+.dark-mode .nav-pills .nav-link.active {
+  background-color: var(--accent-green) !important;
+  color: #fff !important;
+}
+
+/* Scrollbars oscuros (Webkit) */
+.dark-mode ::-webkit-scrollbar {
+  width: 8px;
+}
+.dark-mode ::-webkit-scrollbar-track {
+  background: var(--bg-card);
+}
+.dark-mode ::-webkit-scrollbar-thumb {
+  background-color: var(--border-light);
+  border-radius: 4px;
+}
+
+/* Transiciones suaves */
+body, .card, .table, .sidebar, .nav-link {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================================
+   FIX A: Card-header con bg-white
+   ================================ */
+.dark-mode .card-header.bg-white,
+.dark-mode .card-header.bg-light,
+.dark-mode .bg-white,
+.dark-mode .bg-light {
+  background-color: var(--bg-card) !important;
+  color: var(--text-light) !important;
+  border-color: var(--border-light) !important;
+}
+
+.dark-mode .fw-bold,
+.dark-mode .card-header .fw-bold,
+.dark-mode .card-title {
+  color: var(--text-light) !important;
+}
+
+
+/* ================================
+   FIX B: Modales completamente oscuros
+   ================================ */
+.dark-mode .modal-content {
+  background-color: var(--bg-card) !important;
+  color: var(--text-light) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.dark-mode .modal-header,
+.dark-mode .modal-footer {
+  background-color: var(--bg-darker) !important;
+  color: var(--text-light) !important;
+  border-color: var(--border-light) !important;
+}
+
+.dark-mode .modal-title {
+  color: var(--text-light) !important;
+}
+
+.dark-mode .modal-body {
+  background-color: var(--bg-card) !important;
+  color: var(--text-light) !important;
+}
+
+.dark-mode .btn-close {
+  filter: invert(1) !important;
+}
+
+/* ================================================
+   FIX C: Card-header con bg-success-subtle (muy claro)
+   ================================================ */
+.dark-mode .card-header.bg-success-subtle {
+  background-color: var(--bg-darker) !important;
+  color: var(--accent-green) !important; 
+  border-color: var(--border-light) !important;
+}
+
+.dark-mode .text-success-emphasis {
+  color: var(--accent-green) !important;
+}
+
+
+/* ================================================
+   FIX D: table-light (encabezado claro)
+   ================================================ */
+.dark-mode .table-light {
+  background-color: var(--bg-darker) !important;
+  color: var(--text-light) !important;
+  border-color: var(--border-light) !important;
+}
+
+.dark-mode .table-light th {
+  background-color: var(--bg-darker) !important;
+  color: var(--text-light) !important;
+}
