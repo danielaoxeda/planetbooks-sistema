@@ -61,11 +61,11 @@ CREATE TABLE clients (
 INSERT INTO clients
 (name, last_name_father, last_name_mother, age, user, email, password, country, registration_date, purchases, sessions, role, active)
 VALUES
-('Daniela', 'Ojeda', 'Arrelucea', 21, 'lila', 'daniela.oxeda@gmail.com',"1234", 'Peru', '2025-10-01', 3, 10,'CLIENT', TRUE),
-('Maria', 'Lopez', 'Ramirez', 30, 'marial', 'maria@gmail.com',"1234", 'Chile', '2025-08-15', 5, 20,'CLIENT', TRUE),
-('Carlos', 'Torres', 'Fernandez', 28, 'carlost', 'carlos@gmail.com',"1234", 'Mexico', '2025-09-05', 2, 5,'CLIENT', TRUE),
-('Lucia', 'Martinez', 'Diaz', 22, 'luciam', 'lucia@gmail.com',"1234", 'Argentina', '2025-07-20', 1, 8,'CLIENT', TRUE),
-('Admin', 'Planet', 'Books', 18, 'admin', 'planetbooks.pe@gmail.com', '1234', 'Peru', CURDATE(), 0, 0, 'ADMIN', TRUE);
+('Daniela', 'Ojeda', 'Arrelucea', 21, 'lila324', 'daniela.oxeda@gmail.com',"1234567", 'Peru', '2025-10-01', 3, 10,'CLIENT', TRUE),
+('Maria', 'Lopez', 'Ramirez', 30, 'marial456', 'maria@gmail.com',"1234567", 'Chile', '2025-08-15', 5, 20,'CLIENT', TRUE),
+('Carlos', 'Torres', 'Fernandez', 28, 'carlost33', 'carlos@gmail.com',"1234567", 'Mexico', '2025-09-05', 2, 5,'CLIENT', TRUE),
+('Lucia', 'Martinez', 'Diaz', 22, 'luciam56', 'lucia@gmail.com',"1234567", 'Argentina', '2025-07-20', 1, 8,'CLIENT', TRUE),
+('Admin', 'Planet', 'Books', 18, 'admin123', 'planetbooks.pe@gmail.com', '1234567', 'Peru', CURDATE(), 0, 0, 'ADMIN', TRUE);
 
 SELECT * FROM clients;
 
