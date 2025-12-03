@@ -18,13 +18,13 @@ function generateReport() {
     const startDate = startDateInput ? startDateInput.value : '';
     const endDate = endDateInput ? endDateInput.value : '';
     const category = categorySelect ? categorySelect.value : '';
-    
+
     // 2. Construcción de la URL (si los filtros están vacíos, el Servicio Java usará el defecto de 30 días)
     const params = new URLSearchParams();
     if (startDate) params.append('startDate', startDate);
     if (endDate) params.append('endDate', endDate);
     if (category && category !== 'All...') params.append('category', category);
-    
+
     // URL del endpoint REST: /reports/transaction-data
     const url = `/reports/transaction-data?${params.toString()}`;
 
@@ -41,7 +41,7 @@ function generateReport() {
         })
         .then(data => {
             // 4. Llama a la función para dibujar la tabla
-            updateTransactionsTable(data); 
+            updateTransactionsTable(data);
             console.log(`Successfully loaded ${data.length} recent transactions.`);
         })
         .catch(error => {
@@ -56,37 +56,37 @@ function generateReport() {
  */
 function updateTransactionsTable(sales) {
     const tableBody = document.getElementById('recentSalesTableBody');
-    if (!tableBody) return; 
+    if (!tableBody) return;
 
     // Limpia las filas existentes (incluida cualquier fila vacía de Thymeleaf)
-    tableBody.innerHTML = ''; 
+    tableBody.innerHTML = '';
 
     sales.forEach(sale => {
         const row = tableBody.insertRow();
-        
+
         // Columna 1: Transaction ID
         row.insertCell(0).innerText = sale.transactionId;
-        
+
         // Columna 2: Customer Name
         row.insertCell(1).innerText = sale.customerName;
-        
+
         // Columna 3: Book Title
         row.insertCell(2).innerText = sale.bookTitle;
-        
+
         // Columna 4: Transaction Amount (Formato de moneda)
         // Se asume que sale.transactionAmount es un número (Double)
         const amountFormatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(sale.transactionAmount);
         row.insertCell(3).innerText = amountFormatted;
-        
+
         // Columna 5: Sale Date (LocalDate)
         // Spring convierte LocalDate a una cadena YYYY-MM-DD
-        row.insertCell(4).innerText = sale.transactionDate; 
-        
+        row.insertCell(4).innerText = sale.transactionDate;
+
         // Columna 6: Payment Status (Con estilo de badge)
         const statusCell = row.insertCell(5);
         const badge = document.createElement('span');
         // Usamos el campo statusBadgeColor enviado desde el DTO para el estilo CSS (ej. text-bg-success)
-        badge.className = `badge ${sale.statusBadgeColor}`; 
+        badge.className = `badge ${sale.statusBadgeColor}`;
         badge.innerText = sale.paymentStatus;
         statusCell.appendChild(badge);
     });
@@ -96,8 +96,26 @@ function updateTransactionsTable(sales) {
 // --- Event Listener Setup (Se ejecuta cuando el HTML está listo) ---
 document.addEventListener('DOMContentLoaded', () => {
     // **ACCION CRÍTICA:** Ejecuta la carga de datos inmediatamente al cargar la página.
-    generateReport(); 
-    
-    // NOTA: Si deseas usar el botón "Generate Report" (el azul) para otra cosa (ej. Exportar a Excel), 
-    // debes agregar su funcionalidad aquí con un nuevo selector y evento. 
+    generateReport();
+
+    /* =====  NUEVO: descarga del Excel  ===== */
+const excelBtn = document.querySelector('.btn-primary.rounded-pill');
+if (excelBtn) {
+    excelBtn.addEventListener('click', () => {
+        console.log('1. Botón pulsado');
+        const start = document.getElementById('startDate').value; // 2025-11-03
+        const end   = document.getElementById('endDate').value;   // 2025-12-02
+        const cat   = document.getElementById('category').selectedOptions[0].text;
+        console.log('2. fechas:', start, end);
+        if (!start || !end) {
+            alert('Please pick start and end dates');
+            return;
+        }
+        console.log('3. pasó validación');
+        // Sin split: ya están en ISO
+        const url = `/reports/sales/excel?startDate=${start}&endDate=${end}&category=${cat}`;
+        console.log('4. URL:', url);
+        window.open(url, '_blank');
+    });
+}
 });

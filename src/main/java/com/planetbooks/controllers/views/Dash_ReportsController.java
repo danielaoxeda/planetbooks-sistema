@@ -6,12 +6,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.planetbooks.DTO.SaleTransactionRowDTO; // Importa el DTO
+import com.planetbooks.repositories.VentaRepository;
+import com.planetbooks.services.ExcelGeneratorService;
 import com.planetbooks.services.ReporteTransactionService; // Importa el servicio
 import org.springframework.beans.factory.annotation.Autowired; // Necesario para inyección
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.format.annotation.DateTimeFormat; // Necesario para parsear fechas
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestParam; // Necesario para los parámetros de filtro
 import org.springframework.web.bind.annotation.ResponseBody; // CRUCIAL para devolver JSON
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.List;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import com.planetbooks.repositories.VentaRepository;
+import com.planetbooks.services.ExcelGeneratorService;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,6 +35,11 @@ import java.util.List;
 public class Dash_ReportsController {
 
     // Inyección del nuevo servicio
+    @Autowired
+    private VentaRepository ventaRepository; // ya existe en tu proyecto
+    @Autowired
+    private ExcelGeneratorService excelGeneratorService; // la creamos antes
+
     @Autowired
     private ReporteTransactionService reporteTransactionService;
 
@@ -54,7 +74,7 @@ public class Dash_ReportsController {
         model.addAttribute("activeTab", "failures");
         return "admin/reports/failures-report";
     }
-// ----------------------------------------------------------------------
+    // ----------------------------------------------------------------------
     // NUEVO MÉTODO AJAX (Devuelve datos JSON)
     // ----------------------------------------------------------------------
 
@@ -62,15 +82,35 @@ public class Dash_ReportsController {
      * AJAX Endpoint to fetch filtered sales transaction data for the table.
      * Full URL: /reports/transaction-data
      */
-    @GetMapping("/transaction-data") 
+    @GetMapping("/transaction-data")
     @ResponseBody // Indica a Spring que serialice el retorno (List<DTO>) a JSON
     public List<SaleTransactionRowDTO> getSalesTransactionData(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
             @RequestParam(required = false) String category) {
-        
+
         // Llama al servicio para obtener los datos filtrados
         return reporteTransactionService.getFilteredSaleTransactions(startDate, endDate, category);
+    }
+
+    /* Descarga del Excel */
+    @GetMapping("/sales/excel")
+    public ResponseEntity<InputStreamResource> downloadSalesExcel(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
+            @RequestParam(required = false) String category) throws IOException {
+
+        List<SaleTransactionRowDTO> data = ventaRepository.findFilteredSaleTransactions(startDate, endDate, category);
+        ByteArrayInputStream in = excelGeneratorService.generateSalesExcel(data);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=sales_report.xlsx");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(
+                        MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+                .body(new InputStreamResource(in));
     }
 
 }

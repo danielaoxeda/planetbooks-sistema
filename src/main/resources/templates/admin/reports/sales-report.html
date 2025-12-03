@@ -48,37 +48,22 @@
                             <!-- Start Date -->
                             <div class="col-md-4 col-lg-3 d-flex flex-column">
                                 <label for="startDate" class="form-label text-muted small mb-1">Start Date</label>
-                                <div class="input-group flex-grow-1">
-                                    <input type="text" class="form-control rounded-start-pill" id="startDate"
-                                        placeholder="dd/mm/yyyy">
-                                    <span class="input-group-text rounded-end-pill">
-                                        <i class="bi bi-calendar text-primary"></i>
-                                    </span>
-                                </div>
+                                <input type="date" class="form-control rounded-pill" id="startDate">
                             </div>
 
                             <!-- End Date -->
                             <div class="col-md-4 col-lg-3 d-flex flex-column">
                                 <label for="endDate" class="form-label text-muted small mb-1">End Date</label>
-                                <div class="input-group flex-grow-1">
-                                    <input type="text" class="form-control rounded-start-pill" id="endDate"
-                                        placeholder="dd/mm/yyyy">
-                                    <span class="input-group-text rounded-end-pill">
-                                        <i class="bi bi-calendar text-primary"></i>
-                                    </span>
-                                </div>
+                                <input type="date" class="form-control rounded-pill" id="endDate">
                             </div>
 
                             <!-- Category -->
                             <div class="col-md-4 col-lg-3 d-flex flex-column">
-                                <label for="category" class="form-label text-muted small mb-1">Certification /
-                                    Category</label>
+                                <label for="category" class="form-label text-muted small mb-1">Publisher</label>
                                 <select class="form-select rounded-pill flex-grow-1" id="category">
                                     <option selected>All...</option>
-                                    <option value="1">TOEFL</option>
-                                    <option value="2">IELTS</option>
-                                    <option value="3">FCE</option>
-                                    <option value="4">CAE</option>
+                                    <option>Cambridge</option>
+                                    <option>Oxford</option>
                                 </select>
                             </div>
 
@@ -155,19 +140,6 @@
                     </div>
 
                 </div>
-
-                <!-- MONTHLY REVENUE CHART -->
-                <h2 class="h4 mt-3 mb-3 text-gray-700">Monthly Revenue Trend</h2>
-                <div class="card shadow-lg rounded-3 border-0 mb-5">
-                    <div class="card-header bg-white fw-bold border-bottom-0">Revenue vs. Previous Month</div>
-                    <div class="card-body text-center">
-                        <div class="p-5 border border-dashed rounded-3 bg-light"
-                            style="height: 400px; line-height: 350px; color: #6c757d;">
-                            <p>Revenue Line Chart</p>
-                        </div>
-                    </div>
-                </div>
-
                 <h2 class="h4 mt-3 mb-3 text-gray-700">Recent Purchases (Last 30 Days)</h2>
                 <div class="card shadow-lg mb-4 rounded-3 border-0">
                     <div class="card-body">
