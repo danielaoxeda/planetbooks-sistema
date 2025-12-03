@@ -5,22 +5,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.planetbooks.DTO.SaleTransactionRowDTO; 
+import com.planetbooks.DTO.SaleTransactionRowDTO;
 import com.planetbooks.DTO.SalesExcelDTO;
 import com.planetbooks.repositories.VentaRepository;
 import com.planetbooks.services.ExcelGeneratorService;
-import com.planetbooks.services.ReporteTransactionService; 
-import org.springframework.beans.factory.annotation.Autowired; 
+import com.planetbooks.services.ReporteTransactionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
-import org.springframework.format.annotation.DateTimeFormat; 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam; 
-import org.springframework.web.bind.annotation.ResponseBody; 
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import com.planetbooks.DTO.BookFilterDTO;
 
 import java.time.LocalDate;
 
@@ -29,9 +30,9 @@ import java.time.LocalDate;
 public class Dash_ReportsController {
 
     @Autowired
-    private VentaRepository ventaRepository; 
+    private VentaRepository ventaRepository;
     @Autowired
-    private ExcelGeneratorService excelGeneratorService; 
+    private ExcelGeneratorService excelGeneratorService;
 
     @Autowired
     private ReporteTransactionService reporteTransactionService;
@@ -65,7 +66,7 @@ public class Dash_ReportsController {
     }
 
     @GetMapping("/transaction-data")
-    @ResponseBody 
+    @ResponseBody
     public List<SaleTransactionRowDTO> getSalesTransactionData(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
@@ -86,6 +87,38 @@ public class Dash_ReportsController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "attachment; filename=sales_report.xlsx");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(
+                        MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+                .body(new InputStreamResource(in));
+    }
+
+    /* ---------- JSON: todos los libros filtrados ---------- */
+    @GetMapping("/api/books")
+    @ResponseBody 
+    public List<BookFilterDTO> getBooks(
+            @RequestParam(required = false) String publisher,
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice) {
+
+        return ventaRepository.findAllBooks(publisher, minPrice, maxPrice);
+    }
+
+    /* ---------- Exportar Excel: libros filtrados ---------- */
+    @GetMapping("/api/books/excel")
+    public ResponseEntity<InputStreamResource> downloadBooksExcel(
+            @RequestParam(required = false) String publisher,
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice) throws IOException {
+
+        List<BookFilterDTO> data = ventaRepository.findAllBooks(publisher, minPrice, maxPrice);
+
+        ByteArrayInputStream in = excelGeneratorService.generateBooksExcel(data);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=books_report.xlsx");
 
         return ResponseEntity.ok()
                 .headers(headers)
