@@ -24,12 +24,18 @@
             <label class="form-label">Email</label>
             <input type="email" th:field="*{email}" class="form-control" required>
             <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            <div class="text-danger" th:if="${errorEmail}">
+                <span th:text="${errorEmail}"></span>
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">User</label>
             <input type="text" th:field="*{user}" class="form-control" required>
             <div class="text-danger" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></div>
+            <div class="text-danger" th:if="${errorUser}">
+                <span th:text="${errorUser}"></span>
+            </div>
         </div>
 
         <div class="mb-3">

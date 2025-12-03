@@ -8,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
+
 import java.time.LocalDate;
 
 @Controller
@@ -21,26 +25,33 @@ public class RegisterController {
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("client", new Client());
-        return "Register"; // tu template HTML
+        return "Register";
     }
 
     @PostMapping("/register")
-    public String registerClient(@ModelAttribute Client client, Model model) {
-        // Validar si el usuario ya existe
-        if(clientRepository.findByActiveTrue().stream().anyMatch(c -> c.getUser().equals(client.getUser()))) {
-            model.addAttribute("error", "El nombre de usuario ya existe");
-            return "Register";
-        }
-        // Validar si el email ya existe
-        if(clientRepository.findByActiveTrue().stream().anyMatch(c -> c.getEmail().equals(client.getEmail()))) {
-            model.addAttribute("error", "El correo ya está registrado");
+    public String registerClient(
+            @Valid @ModelAttribute("client") Client client,
+            BindingResult result,
+            Model model) {
+
+        if (result.hasErrors()) {
             return "Register";
         }
 
-        // Encriptar la contraseña
+        if (clientRepository.findByActiveTrue().stream()
+                .anyMatch(c -> c.getUser().equals(client.getUser()))) {
+            model.addAttribute("errorUser", "El nombre de usuario ya existe");
+            return "Register";
+        }
+
+        if (clientRepository.findByActiveTrue().stream()
+                .anyMatch(c -> c.getEmail().equals(client.getEmail()))) {
+            model.addAttribute("errorEmail", "El correo ya está registrado");
+            return "Register";
+        }
+
         client.setPassword(passwordEncoder.encode(client.getPassword()));
 
-        // Setear datos por defecto
         client.setRole("CLIENT");
         client.setRegistration_date(LocalDate.now());
         client.setActive(true);
@@ -50,6 +61,6 @@ public class RegisterController {
         clientRepository.save(client);
 
         model.addAttribute("success", "Registro exitoso. Ya puedes iniciar sesión.");
-        return "Login"; // redirige a la página de login
+        return "Login";
     }
 }
