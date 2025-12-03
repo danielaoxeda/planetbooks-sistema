@@ -59,7 +59,7 @@ function updateTransactionsTable(sales) {
         const statusCell = row.insertCell(5);
         const badge = document.createElement('span');
 
-        badge.className = `badge ${sale.statusBadgeColor}`;
+        badge.className = `badge bg-light text-dark`;
         badge.innerText = sale.paymentStatus;
         statusCell.appendChild(badge);
     });
