@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body th:data-user="${session.loggedUser != null}">
 <!--Navbar-->
 <div th:replace="fragments/navbar :: navbar"></div>
 

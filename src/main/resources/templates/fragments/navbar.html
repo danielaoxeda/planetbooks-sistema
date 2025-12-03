@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<header th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+<header th:fragment="navbar" th:data-user="${session.loggedUser != null}" xmlns:th="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-white fs-4" th:href="@{/}">
@@ -66,10 +66,29 @@
 
 
                     <!-- Login -->
-                    <li class="nav-item ms-3">
+                    <!-- Si NO hay sesión: mostrar Login -->
+                    <li class="nav-item ms-3" th:if="${session.loggedUser == null}">
                         <a class="btn btn-light text-success fw-semibold px-3" th:href="@{/login}">
                             <i class="me-1" data-lucide="log-in"></i> Login
                         </a>
+                    </li>
+
+                    <!-- Si hay sesión: mostrar usuario -->
+                    <li class="nav-item dropdown ms-3" th:if="${session.loggedUser != null}">
+                        <a class="btn btn-light text-success fw-semibold px-3 dropdown-toggle"
+                           href="#" data-bs-toggle="dropdown">
+                            <i data-lucide="user"></i>
+                            <span th:text="${session.loggedUser.name}">User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item text-danger fw-semibold d-flex align-items-center gap-2"
+                                   th:href="@{/logout}">
+                                    <i data-lucide="log-out"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -113,10 +132,9 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Continue Shopping
                     </button>
-                    <button class="btn btn-success" type="button" id="checkoutModalBtn">
+                    <button class="btn btn-success checkout-btn" type="button">
                         Checkout
                     </button>
-
                 </div>
             </div>
         </div>

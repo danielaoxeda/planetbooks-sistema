@@ -1,22 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ----- ELEMENTOS DOM -----
+    // -------------------------
+    // ELEMENTOS DOM
+    // -------------------------
     const cartItemsModal = document.getElementById("cartItems");
     const cartTotalModal = document.getElementById("cartTotal");
 
     const checkoutPageItems = document.getElementById("cartPageItems");
     const checkoutPageTotal = document.getElementById("cartPageTotal");
 
-    const checkoutCatalogBtn = document.getElementById("checkoutCatalogBtn");
-    const checkoutModalBtn = document.getElementById("checkoutModalBtn");
+    const checkoutButtons = document.querySelectorAll(".checkout-btn");
     const cartCount = document.getElementById("cartCount");
 
-    console.log("[checkout] Botones:", {
-        checkoutCatalogBtn,
-        checkoutModalBtn
-    });
-
-    // ----- CART -----
+    // -------------------------
+    // CART
+    // -------------------------
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     function saveCart() {
@@ -25,21 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateCartCount() {
         const count = cart.reduce((s, i) => s + i.quantity, 0);
+
         if (!cartCount) return;
 
         cartCount.textContent = count;
         cartCount.style.display = count > 0 ? "inline-block" : "none";
     }
 
-    // ----- TOTAL -----
+    // -------------------------
+    // TOTAL
+    // -------------------------
     function getTotal() {
         return cart.reduce((s, i) => s + parseFloat(i.price) * i.quantity, 0);
     }
 
-    // ----- RENDER GLOBAL (Modal + Cart.html) -----
+    // -------------------------
+    // RENDER GLOBAL (Modal + Cart.html)
+    // -------------------------
     function renderCart() {
 
-        // ----- MODAL -----
+        // MODAL
         if (cartItemsModal && cartTotalModal) {
             if (cart.length === 0) {
                 cartItemsModal.innerHTML = `
@@ -62,14 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>$${price.toFixed(2)}</td>
                             <td>$${total.toFixed(2)}</td>
                             <td><button class="btn btn-sm btn-danger" data-action="remove" data-index="${idx}">X</button></td>
-                        </tr>`;
+                        </tr>
+                    `;
                 }).join("");
 
                 cartTotalModal.textContent = getTotal().toFixed(2);
             }
         }
 
-        // ----- CART PAGE -----
+        // CART PAGE (checkout.html)
         if (checkoutPageItems && checkoutPageTotal) {
             if (cart.length === 0) {
                 checkoutPageItems.innerHTML = `
@@ -88,7 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>${item.quantity}</td>
                             <td>$${total.toFixed(2)}</td>
                             <td><button class="btn btn-sm btn-danger" data-action="remove" data-index="${idx}">X</button></td>
-                        </tr>`;
+                        </tr>
+                    `;
                 }).join("");
 
                 checkoutPageTotal.textContent = getTotal().toFixed(2);
@@ -98,7 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCartCount();
     }
 
-    // ----- AGREGAR PRODUCTOS -----
+    // -------------------------
+    // AGREGAR PRODUCTOS
+    // -------------------------
     document.querySelectorAll(".add-to-cart").forEach(btn => {
         btn.addEventListener("click", () => {
             const name = btn.dataset.name;
@@ -116,7 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ----- BOTONES DEL MODAL -----
+    // -------------------------
+    // BOTONES DEL MODAL
+    // -------------------------
     if (cartItemsModal) {
         cartItemsModal.addEventListener("click", e => {
             const index = e.target.dataset.index;
@@ -133,7 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ----- BOTONES EN CART.HTML -----
+    // -------------------------
+    // BOTONES EN CART.HTML
+    // -------------------------
     if (checkoutPageItems) {
         checkoutPageItems.addEventListener("click", e => {
             const index = e.target.dataset.index;
@@ -150,7 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ----- CHECKOUT -----
+    // -------------------------
+    // CHECKOUT (SOLO SESIÓN SPRING)
+    // -------------------------
     const userLogged = document.body.dataset.user === "true";
     console.log("[checkout] userLogged:", userLogged, "data-user:", document.body.dataset.user);
 
@@ -158,39 +171,30 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("[checkout] Click en:", event.currentTarget.id);
 
         if (!userLogged) {
-            console.log("[checkout] Usuario NO logueado, redirigiendo a /login");
             window.sonner?.error("Please log in to proceed.");
             window.location.href = "/login";
             return;
         }
 
         if (cart.length === 0) {
-            console.log("[checkout] Carrito vacío");
             window.sonner?.error("Your cart is empty!");
             return;
         }
 
-        console.log("[checkout] Redirigiendo a /checkout");
         window.location.href = "/checkout";
     }
 
-    if (checkoutCatalogBtn) {
-        checkoutCatalogBtn.addEventListener("click", handleCheckout);
-        console.log("[checkout] Listener agregado a checkoutCatalogBtn");
-    }
+    checkoutButtons.forEach(btn =>
+        btn.addEventListener("click", handleCheckout)
+    );
 
-    if (checkoutModalBtn) {
-        checkoutModalBtn.addEventListener("click", handleCheckout);
-        console.log("[checkout] Listener agregado a checkoutModalBtn");
-    }
-
-    // ----- Inicializar -----
+    // -------------------------
+    // INICIALIZAR
+    // -------------------------
     renderCart();
 });
 
-// ---------------------------
 // PAYPAL BUTTONS
-// ---------------------------
 if (document.getElementById("paypal-button-container")) {
     paypal.Buttons({
 

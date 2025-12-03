@@ -11,14 +11,14 @@ public class CheckoutController {
 
     @GetMapping("/checkout")
     public String checkout(HttpServletRequest request, HttpSession session, Model model) {
-        // Check if the user is logged in
-        if (session.getAttribute("user") == null) {
+
+        if (session.getAttribute("loggedUser") == null) {
             return "redirect:/login";
         }
-        // To select the active menu
-        model.addAttribute("currentPath", request.getRequestURI());
 
+        model.addAttribute("currentPath", request.getRequestURI());
 
         return "Checkout";
     }
+
 }

@@ -15,7 +15,7 @@
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
 </head>
 
-<body th:attr="data-user=${session.user != null ? 'true' : 'false'}">
+<body th:data-user="${session.loggedUser != null}">
 
 <!-- Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
@@ -92,9 +92,8 @@
 </main>
     <!-- Action Buttons under catalog -->
     <div class="catalog-actions text-center">
-        <button class="btn btn-success checkout-btn" type="button" id="checkoutCatalogBtn">
-            Checkout
-            <i data-lucide="arrow-right" class="ms-2"></i>
+        <button class="btn btn-success checkout-btn" type="button">
+            Checkout <i data-lucide="arrow-right" class="ms-2"></i>
         </button>
     </div>
 

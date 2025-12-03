@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
+    Client findByEmailAndPassword(String email, String password);
+
     // Obtener clientes activos
     List<Client> findByActiveTrue();
 

@@ -15,7 +15,7 @@
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
 </head>
 
-<body class="bg-light d-flex flex-column min-vh-100">
+<body th:data-user="${session.loggedUser != null}" class="bg-light d-flex flex-column min-vh-100">
 
 <script src="https://www.paypal.com/sdk/js?client-id=AUAQLoyeT0ZMqOCVye8ioYOEJ_oxYunFuEiAT3rTOHVnKeiSXH56YzXRyLUIxJPHmMZoih4KWz9UgUzb&currency=USD"></script>
 

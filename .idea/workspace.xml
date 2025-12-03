@@ -5,52 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95e19ea0-d936-43cd-9481-de2a0e76ae9d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/planetbooks/controllers/views/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScripBd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ScripBd.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/controllers/AdminDashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/controllers/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/models/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/planetbooks/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/controllers/views/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/planetbooks/controllers/views/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/planetbooks/models/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/repositories/AdminRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/services/LoginService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/admin-dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/planetbooks/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/planetbooks/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/checkout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Catalog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/PlanetbooksApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/PlanetbooksApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/config/PayPalConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/config/PayPalConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/AdminDashboardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/AboutUsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/AboutUsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/CatalogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/CatalogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/CheckoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/CheckoutSuccessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/CheckoutSuccessController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/ContactController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/ContactController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_ProductsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_ReportsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_ReportsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_SettingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/Dash_SettingsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/PayPalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/PayPalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/TyCController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/TyCController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/T&amp;C.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/T&amp;C.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/checkout-success.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/checkout-success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/controllers/views/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Venta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/models/Venta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/AdminRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/AdminRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/InventoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/InventoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/VentaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/VentaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/services/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/services/EmailService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/services/InventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/services/InventoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/services/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/services/PayPalService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/services/PayPalService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/services/StorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/services/StorageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/services/StorageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/services/StorageServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/planetbooks/planetbooks/PlanetbooksApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/planetbooks/planetbooks/PlanetbooksApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/planetbooks/repositories/ClientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

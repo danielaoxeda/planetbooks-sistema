@@ -1,20 +1,18 @@
 package com.planetbooks.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.time.LocalDate;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "clients")
 public class Client {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Nombre
     @NotBlank(message = "The name is required")
     @Size(min = 2, max = 50)
     private String name;
@@ -27,12 +25,19 @@ public class Client {
     @Size(min = 2, max = 50)
     private String last_name_mother;
 
+    // Email
     @NotBlank(message = "Email is mandatory")
     @Email(message = "Invalid email")
     private String email;
 
+    // Password
+    @NotBlank(message = "Password is required")
+    @Size(min = 3, max = 50)
+    private String password;
+
+    // Username
     @NotBlank(message = "User is required")
-    @Size(min = 5, max = 50)
+    @Size(min = 3, max = 50)
     private String user;
 
     @Min(value = 18, message = "Must be over 18 years old")
@@ -46,11 +51,13 @@ public class Client {
 
     private int purchases;
     private int sessions;
+
     private String role;
+
+    @Column(columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean active = true;
 
-
-    // ===== Getters y Setters =====
+// ===== Getters y Setters =====
     public Long getId() {
         return id;
     }
@@ -90,6 +97,10 @@ public class Client {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPassword() {return password;}
+
+    public void setPassword(String password) {this.password = password;}
 
     public String getUser() {
         return user;
