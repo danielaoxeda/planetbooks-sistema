@@ -38,6 +38,7 @@ VALUES
 -- KET
 ('KET', 'A2 KEY', 'Practice tests', 'Cambridge', 2024, 'SB,TB,AK,MP3', 'A2 KEY for Schools Trainer 2', '5.00', 'Six practice tests + Teacher''s Notes: PDF + MP3 +SB + TB + AK','ket-cambridge-2024.jpeg',"https://drive.google.com/drive/folders/1bipY8yoQT0FB_pbh3XubjYjeYVL06G8b?usp=drive_link"),
 ('KET', 'A2 KEY', 'Practice tests', 'Oxford', 2019, 'PDF,AK,MP3', 'KEY for Schools Exam Trainer', '5.00', 'Seven practice tests: PDF + MP3 + AK','ket-oxford-2019.png',"https://drive.google.com/drive/folders/1bipY8yoQT0FB_pbh3XubjYjeYVL06G8b?usp=drive_link");
+
 -- Clients Table
 CREATE TABLE clients (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -52,18 +53,19 @@ CREATE TABLE clients (
     registration_date DATE,
     purchases INT,
     sessions INT,
+    role VARCHAR(50),
     active BOOLEAN DEFAULT TRUE
 );
 
 -- INSERTS FOR CLIENTS
 INSERT INTO clients
-(name, last_name_father, last_name_mother, age, user, email, password, country, registration_date, purchases, sessions, active)
+(name, last_name_father, last_name_mother, age, user, email, password, country, registration_date, purchases, sessions, role, active)
 VALUES
-('Juan', 'Perez', 'Gomez', 25, 'juanp', 'juanp@gmail.com',"1234", 'Peru', '2024-10-01', 3, 10, TRUE),
-('Maria', 'Lopez', 'Ramirez', 30, 'marial', 'maria@gmail.com',"1234", 'Chile', '2024-08-15', 5, 20, TRUE),
-('Carlos', 'Torres', 'Fernandez', 28, 'carlost', 'carlos@gmail.com',"1234", 'Mexico', '2024-09-05', 2, 5, TRUE),
-('Lucia', 'Martinez', 'Diaz', 22, 'luciam', 'lucia@gmail.com',"1234", 'Argentina', '2024-07-20', 1, 8, TRUE),
-('Diego', 'Sanchez', 'Ruiz', 35, 'diegos', 'diego@gmail.com',"1234", 'Colombia', '2024-06-10', 7, 15, TRUE);
+('Daniela', 'Ojeda', 'Arrelucea', 21, 'lila', 'daniela.oxeda@gmail.com',"1234", 'Peru', '2025-10-01', 3, 10,'CLIENT', TRUE),
+('Maria', 'Lopez', 'Ramirez', 30, 'marial', 'maria@gmail.com',"1234", 'Chile', '2025-08-15', 5, 20,'CLIENT', TRUE),
+('Carlos', 'Torres', 'Fernandez', 28, 'carlost', 'carlos@gmail.com',"1234", 'Mexico', '2025-09-05', 2, 5,'CLIENT', TRUE),
+('Lucia', 'Martinez', 'Diaz', 22, 'luciam', 'lucia@gmail.com',"1234", 'Argentina', '2025-07-20', 1, 8,'CLIENT', TRUE),
+('Admin', 'Planet', 'Books', 18, 'admin', 'planetbooks.pe@gmail.com', '1234', 'Peru', CURDATE(), 0, 0, 'ADMIN', TRUE);
 
 SELECT * FROM clients;
 

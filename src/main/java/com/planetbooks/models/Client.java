@@ -46,6 +46,7 @@ public class Client {
 
     private int purchases;
     private int sessions;
+    private String role;
     private boolean active = true;
 
 
@@ -137,6 +138,10 @@ public class Client {
     public void setSessions(int sessions) {
         this.sessions = sessions;
     }
+
+    public String getRole() {return role;}
+
+    public void setRole(String role) {this.role = role;}
 
     public boolean isActive() {
         return active;
