@@ -117,3 +117,9 @@ INSERT INTO ventas (client_id, inventory_id, quantity, total_price, payment_meth
 (3, 8, 2, 10.00, 'PayPal', '2025-12-01'),
 (2, 5, 1, 4.00, 'Tarjeta', '2025-12-02'),
 (4, 4, 1, 3.00, 'Yape', '2025-12-02');
+
+INSERT INTO ventas (client_id, inventory_id, quantity, total_price, payment_method, sale_date) VALUES
+-- febrero 2025
+(1, 6, 1, 4.00, 'Efectivo', '2025-02-01'),
+(1, 8, 1, 4.00, 'Efectivo', '2025-02-01'),
+(1, 8, 1, 5.00, 'Yape', '2025-02-03');
