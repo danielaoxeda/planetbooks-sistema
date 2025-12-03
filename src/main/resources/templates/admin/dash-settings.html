@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="manifest" href="/site.webmanifest">
 
     <!-- Bootstrap -->
@@ -17,13 +18,52 @@
 
     <!-- Dark mode global -->
     <link rel="stylesheet" th:href="@{/css/darkmode.css}">
+
+    <style>
+    /* Desktop: margen para sidebar */
+    @media (min-width: 992px) {
+        .main-content {
+            margin-left: 280px; /* coincide con el ancho de sidebar */
+        }
+    }
+    /* Móvil: ocupa todo el ancho */
+    @media (max-width: 991.98px) {
+        .main-content {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+
+        .offcanvas {
+    background-color: #212529 !important; /* coincide con tu sidebar oscuro */
+}
+    }
+</style>
+
   </head>
 
 <body>
   <main class="d-flex flex-nowrap">
-    <div th:insert="fragments/Sidebar :: Sidebar"></div>
 
-    <div class="main-content">
+    <!-- Sidebar desktop (visible solo lg+) -->
+        <div class="d-none d-lg-block sidebar-desktop" th:insert="fragments/Sidebar :: Sidebar"></div>
+
+        <div class="flex-grow-1 main-content">
+            <!-- Botón hamburguesa móvil (d-lg-none) -->
+            <button class="btn btn-outline-dark d-lg-none m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+               MENU <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <!-- Offcanvas para móviles -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body p-0">
+                    <div th:insert="fragments/Sidebar :: Sidebar"></div>
+                </div>
+            </div>
+
       <div class="container mt-4">
         <section class="text-start">
           <h2 class="display-4 fw-bold mb-4 text-balance"> 
