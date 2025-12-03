@@ -5,10 +5,10 @@ import com.planetbooks.models.Venta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import com.planetbooks.DTO.SaleTransactionRowDTO; // Debes añadir este import
+import com.planetbooks.DTO.SaleTransactionRowDTO; 
 import com.planetbooks.DTO.SalesExcelDTO;
 
-import org.springframework.data.repository.query.Param; // Debes añadir este import
+import org.springframework.data.repository.query.Param; 
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -52,10 +52,6 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
             """, nativeQuery = true)
     List<LatestSold> findLatestBooksSold();
 
-    /**
-     * Retrieves filtered sale transactions for the reports table.
-     * Uses JPQL projection to map results into SaleTransactionRowDTO.
-     */
     @Query("SELECT new com.planetbooks.DTO.SaleTransactionRowDTO(" +
             "v.id, v.client.name, v.inventory.title, v.totalPrice, v.saleDate, v.paymentMethod) " +
             "FROM Venta v " +
@@ -68,7 +64,6 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
             @Param("endDate") LocalDate endDate,
             @Param("category") String category);
 
-    /* ---------- NUEVO: para exportar Excel con más campos ---------- */
     @Query(value = """
             SELECT  v.id                AS transactionId,
                     v.sale_date         AS saleDate,

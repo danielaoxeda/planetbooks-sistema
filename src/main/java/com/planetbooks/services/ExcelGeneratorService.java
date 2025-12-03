@@ -1,8 +1,6 @@
 package com.planetbooks.services;
 
-import com.planetbooks.DTO.SaleTransactionRowDTO;
 import com.planetbooks.DTO.SalesExcelDTO;
-
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
@@ -20,7 +18,6 @@ public class ExcelGeneratorService {
 
         Sheet sheet = workbook.createSheet("Sales Report");
 
-        // 1. Cabeceras
         String[] headers = {
             "Transaction ID", "Sale Date", "Amount (USD)", "Payment Method",
             "Client ID", "Name", "Last Name Father", "Last Name Mother", "Email", "Publisher"
@@ -52,7 +49,6 @@ public class ExcelGeneratorService {
             row.createCell(9).setCellValue(r.getPublisher());
         }
 
-        // 3. Auto-ajustar
         for (int i = 0; i < headers.length; i++) sheet.autoSizeColumn(i);
 
         workbook.write(out);
